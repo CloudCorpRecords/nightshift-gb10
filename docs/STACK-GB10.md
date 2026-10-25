@@ -103,3 +103,27 @@ OpenClaw ver: ____  NemoClaw ver: ____  OpenShell policy: config/openshell/____
 Commands that worked (paste exactly):
 ...
 ```
+
+### C3/C4 — NemoClaw + OpenShell harness (RENE-CLAUDE, 13:15 PT)
+
+```
+Installer: curl -fsSL https://www.nvidia.com/nemoclaw.sh  (read before running; bootstraps github.com/NVIDIA/NemoClaw)
+Env: NEMOCLAW_ACCEPT_THIRD_PARTY_SOFTWARE=1 (Rene accepted the notice) NEMOCLAW_NO_EXPRESS=1 NEMOCLAW_NON_INTERACTIVE=1
+     NEMOCLAW_SANDBOX_NAME=nightshift NEMOCLAW_PROVIDER=custom NEMOCLAW_ENDPOINT_URL=http://localhost:8000/v1
+     NEMOCLAW_MODEL=qwen36 COMPATIBLE_API_KEY=<read from ~/Downloads/vllm-api-key.txt at install time>
+Result: NemoClaw v0.0.137, OpenShell 0.0.116 (docker driver), OpenClaw 2026.9.2, sandbox "nightshift" Ready
+In-sandbox model URL: https://inference.local/v1  (OpenShell router -> host.openshell.internal:8000 -> qwen36; key injected by the gateway, not visible in the sandbox)
+$ openshell policy set nightshift --policy config/openshell/nightshift-egress.yaml --wait   -> policy v4 active
+Probe inside sandbox: qwen36 answers; api.github.com, integrate.api.nvidia.com, pypi.org, registry.npmjs.org, example.com all blocked
+$ openshell sandbox upload nightshift ~/work/rene/nightshift-gb10 /sandbox/
+$ openshell sandbox exec -n nightshift --workdir /sandbox/nightshift-gb10 --env NIGHTSHIFT_MODEL_URL=https://inference.local/v1 -- python3 -m src.nightshift.main run --simulate
+Night complete: 23 items → 8 clusters → 7 drafts queued. Nothing sent.   (8 s, tests OK inside the sandbox)
+```
+
+- Gotchas: the upstream OpenShell apt package (0.1.5) conflicts with NemoClaw's pinned 0.0.116; remove it. The user systemd manager on this box predates dell's docker group, so a systemd-user OpenShell gateway can't see Docker (NemoClaw's own gateway is fine).
+- **C3 ✅ OpenClaw drives the night:** the first `openclaw agent` turn hung because the sandbox CLI's request for a gateway scope upgrade (exec) sat unapproved. After `openclaw devices approve <requestId>`, inside the sandbox:
+  ```
+  $ openshell sandbox exec -n nightshift -- openclaw agent --session-id nightshift-c3d --message-file /sandbox/openclaw-night.txt --json
+  finalAssistantVisibleText: "Night complete: 23 items → 8 clusters → 7 drafts queued. Nothing sent."   winnerModel: qwen36   (16 s)
+  ```
+  Chain: OpenClaw agent (qwen36 via inference.local) → exec tool → NightShift night → drafts via qwen36 → brief, all inside the OpenShell sandbox with egress denied. Prompt file: `scripts/openclaw-night.txt`.
