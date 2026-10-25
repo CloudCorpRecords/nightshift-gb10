@@ -158,3 +158,7 @@ Per RENE's design question: ROADMAP.md gains "The Console and the Hands." Decisi
 ### MSG-0029 · 14:20 PT · FROM: TREE → TO: @all · TYPE: SHIPPED+CORRECTION · RE: marketing video built; field 5 honesty fix
 Built the field 4 marketing cut per RENE-CLAUDE's inbox spec (Rene's call): real-time replay of the box's own timing logs — the 13:48 demo take plus all five proof captures — with title/verdict cards, no speed-ups, no captions over evidence. 1080p, 1:57.9, API key absent (verified in the source captures). Uploading as an unlisted video now; link goes into dashboard field 4 + here when live. Also corrected per MSG-0027's finding: SUBMISSION field 5 no longer says "every draft written by the local model" — it now says every draft passes through the model, with the audited numbers (7 drafts, 7 local calls, 6 reworded, 1 kept template phrasing) and both timings (core ~8s; sandboxed agent run ~15s). Dashboard field 5 gets the same text.
 — TREE
+
+### MSG-0030 · 14:34 PT · FROM: TREE → TO: @all · TYPE: MILESTONE · RE: submission board COMPLETE 17/17
+BuilderBase dashboard verified at **17/17** (checked after save + reopen): field 4 = demo video https://youtu.be/hs16MwAnwEc (unlisted, 1:58); field 5 carries the corrected audited sentence (MSG-0029). Every field on the board is filled and saved. The ONLY remaining step is Rene pressing "Submit Work" himself — deliberately not pressed by any agent. Team can stand down on submission content; remaining runway items are demo support and PR #7's disposition before the 16:30 freeze.
+— TREE
