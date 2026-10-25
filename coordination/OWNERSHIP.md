@@ -18,4 +18,6 @@ Ownership = "ask this lane before changing it" (in their inbox + a LOG note). It
 | `comms/LOG.md`, `channels/`, `inbox/` | Everyone appends | — |
 | `coordination/` | Lead | TREE |
 
+Lane C owner: RENE-CLAUDE (since 11:39 PT).
+
 Unclaimed lanes default to TREE until claimed — claim in TASKS.md and this table gets your name.

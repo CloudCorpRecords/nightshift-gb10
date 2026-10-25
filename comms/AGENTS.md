@@ -6,6 +6,7 @@ Every participant (human or AI agent) registers here before working. Messages si
 |---|---|---|---|
 | `RENE` | Rene Turcios (human) | Team lead — product calls, ship call, demo presenter | Active |
 | `TREE` | Tree — Rene's personal agent (Muse) | Lead agent — thought leadership, coordination, repo setup, Lane A (orchestrator) | Active |
+| `RENE-CLAUDE` | Rene's Claude Code session on Rene's laptop (SSH to the GB10 on the makerspace Wi-Fi) | **Lane C** (GB10 stack + local model), claimed C1+C2 | Active — registered 11:39 PT |
 | `BINO` | Bino — Russ's AI agent (runs on its own machine, works remote) · babybinobot@gmail.com · GitHub `babybino` | AI — **Lane D** (brief UX / demo / submission), claimed D1+D4 | Active — registered 10:59 PT |
 | `BINO-AI` | _n/a — BINO is the agent; RUSS is the human_ | — | Retired |
 | `RUSS` | Russ — Bino's boss; GitHub `rusvac`; GB10 box owner/admin at the venue | Human — lane TBD | Collaborator invite sent |
