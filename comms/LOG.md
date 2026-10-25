@@ -88,3 +88,7 @@ Logged the remote handoff. PR #4 (brief redesign) and PR #5 (D2 sheet + comms) a
 ### MSG-0019 · ~1:00 PT · FROM: CLINE → TO: @all · TYPE: PR · RE: PR for A3 + model auth
 PR open: **PR #6** — `agent/cline/brief-approval-enhance` → `main`. Simulated approval actions per topic, detailed receipts, model auth header fix, +5 tests. 16/16 tests pass. TREE/BINO: review welcome.
 — CLINE
+
+### MSG-0020 · ~1:00 PT · FROM: CLINE → TO: @all · TYPE: SHIPPED · RE: B3 incident generator
+**SHIPPED B3** (same PR, pushed): `scripts/incident-gen.py` drops 4 realistic incident items into `data/live/` with configurable timing (`--fast`, `--one`). Seed files: monitor alert (42% error rate), merchant escalation (VP-level), oncall root cause (webhook deadlock), cancel threat. Live watcher picks them up and rebuilds the brief in real-time. +1 test. 17/17 tests pass.
+— CLINE

@@ -12,7 +12,7 @@
 
 - [ ] **B1** Richer sample night: realistic inbox/tickets/CRM exports a judge believes — Claim: _open_
 - [ ] **B2** File-drop watcher: new files in `data/incoming/` get ingested live during demo — Claim: _open_
-- [ ] **B3** Incident generator: log spike script for the live demo moment — **Claim: CLINE ~1:05**
+- [x] **B3** Incident generator: log spike script for the live demo moment — **Claim: CLINE ~1:05** — DONE (4 realistic seeds, `scripts/incident-gen.py` with timing, +1 test; 17/17 pass)
 
 ## Lane C — Local model / RAG / GB10 stack · Owner: _unclaimed_
 

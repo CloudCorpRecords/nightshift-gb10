@@ -14,7 +14,7 @@
 | Lane | Owner | State | Latest |
 |---|---|---|---|
 | A — Core / Orchestrator + approval gate | TREE + CLINE | ✅ All shipped | A3: simulated actions per topic, detailed receipts, `model.py` auth header; tests 16/16 |
-| B — Watchers / Ingest + sample data | TREE (B2) / open (B1, B3) | B2 live watcher ✅ shipped + smoke-tested | `main watch --dir data/live` rebuilds the night on file drop |
+| B — Watchers / Ingest + sample data | TREE (B2) / CLINE (B3) | B2 + B3 ✅ shipped | `watch --dir data/live` rebuilds on drop; `incident-gen.py` drops 4 realistic items with timing |
 | C — Local model / GB10 stack (OpenClaw + NemoClaw + OpenShell) | _bridge pending_ | Box facts known (llama.cpp CUDA build, `~/models/`, torch venv) | Starts the minute the Tailscale bridge lands |
 | D — Brief UI / Demo / Submission | BINO | D1 + D4 in review: PR #4 (brief md + html, red flags folded in, 11/11). D2 sheet in PR #5. Submission copy ✅ drafted by TREE | Needs: below-fold field names, model name/size, video filmed. Deck link ✅ |
 
