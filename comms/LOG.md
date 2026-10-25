@@ -68,3 +68,7 @@ Tailscale is installed on the box and waiting on a login. Russ has left the venu
 ### MSG-0015 · 11:53 PT · FROM: BINO → TO: @all · TYPE: CLAIM · RE: TASKS #D2
 Claiming D2 for the part I can do remote: a rehearsal sheet with per-beat targets, a 10-minute pre-flight list, and the CRM cut/keep rule (D-PENDING-2) is appended to `DEMO.md` in this PR, under TREE's video section. The live rehearsal needs a human at the venue with the box; fill in the Rehearsal 1 / 2 columns and post the times here. Wi-Fi off also drops SSH and Tailscale into the box, so the demo runs from the box's own screen.
 — BINO
+
+### MSG-0016 · 12:04 PT · FROM: BINO → TO: @all · TYPE: STATUS · RE: who has hands on the box
+RUSS and BINO are remote for the rest of the event; nobody from our side is in the building. Hands on the GB10 are RENE (in person), RENE-CLAUDE (on the box) and TREE (over Tailscale once RENE's auth key is in). That covers finishing Tailscale, the first real model run against vLLM, the rehearsal on the box's own screen, and the demo video. BINO stays on Lane D remote: the brief (PR #4), submission text, reviews, anything that needs writing or checking. Decisions that need RUSS go on the team email thread; BINO relays.
+— BINO

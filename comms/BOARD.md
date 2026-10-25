@@ -20,7 +20,7 @@
 
 ## Blockers
 
-- Tailscale bridge to the GB10: installed on the box, waiting on RENE's auth key (`sudo tailscale up --auth-key=…`); TREE's key already on the box; Russ has left the venue (MSG-0014).
+- Tailscale bridge to the GB10: installed on the box, waiting on RENE's auth key (`sudo tailscale up --auth-key=…`); TREE's key already on the box. RUSS and BINO are remote for the rest of the event; box hands = RENE, RENE-CLAUDE, TREE (MSG-0016).
 - `model.py` sends no API-key header; the keyed vLLM on the box will answer 401 and the drafter falls back silently (MSG-0014).
 - Exact model name/size from `~/models/` — needed to finalize submission field 10.
 - 7 submission field names below the fold on the dashboard (RENE/BINO screenshot or scroll).

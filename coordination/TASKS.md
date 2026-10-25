@@ -25,7 +25,7 @@
 ## Lane D — Brief UX / Demo / Submission · Owner: BINO (claimed 10:59 PT via email, transcribed by TREE)
 
 - [ ] **D1** Morning brief rendering: make `outputs/morning-brief.md` gorgeous (and an HTML view if time) — **Claim: BINO 10:59**
-- [ ] **D2** Demo rehearsal #1 + timing; make the CRM cut/keep call (see comms decisions D-PENDING-2) — **Claim: BINO 11:53 PT (rehearsal sheet + pre-flight in `DEMO.md`); live rehearsal needs a human at the venue with the box**
+- [ ] **D2** Demo rehearsal #1 + timing; make the CRM cut/keep call (see comms decisions D-PENDING-2) — **Claim: BINO 11:53 PT (rehearsal sheet + pre-flight in `DEMO.md`); live rehearsal + video = RENE's side on the box (MSG-0016)**
 - [ ] **D3** BuilderBase submission draft filled — Claim: TREE drafted the copy (MSG-0010); cutoff 5:00 PM PT; BINO finishes fields once the room sends field names + model name
 - [ ] **D4** README screenshots / demo GIF of the brief + approval flow — **Claim: BINO 10:59**
 
