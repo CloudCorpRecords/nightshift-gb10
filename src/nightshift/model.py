@@ -28,9 +28,13 @@ class LocalModel:
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3,
         }).encode()
+        headers = {"Content-Type": "application/json"}
+        key = os.environ.get("NIGHTSHIFT_MODEL_KEY", "")
+        if key:
+            headers["Authorization"] = f"Bearer {key}"
         req = urllib.request.Request(
             self.url + "/chat/completions", data=payload,
-            headers={"Content-Type": "application/json"})
+            headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=TIMEOUT_S) as resp:
                 data = json.loads(resp.read())

@@ -6,7 +6,7 @@
 
 - [x] **A1** Repo, vision, comms system, coordination — **Claim: TREE 09:55** — DONE
 - [x] **A2** Orchestrator + 5-agent skeleton + sample night + tests — **Claim: TREE 09:55** — DONE (stdlib, runs anywhere)
-- [ ] **A3** Approval execution + receipts log polish — Claim: _open (TREE continues unless handed off)_
+- [x] **A3** Approval execution + receipts log polish — **Claim: CLINE ~12:30** — DONE (simulated actions per topic, detailed receipts, +5 tests; 16/16 tests pass)
 
 ## Lane B — Watchers / Ingest + data · Owner: _unclaimed_
 

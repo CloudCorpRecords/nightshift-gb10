@@ -34,9 +34,42 @@ def run_night(data_dir, docs_dir, out_dir, model=None):
     return {"items": len(items), "clusters": len(clusters), "queued": len(queue)}
 
 
+# Simulated actions per topic — what "executing" a draft means in demo mode.
+# Each entry: (endpoint, target_system, effect_description_template)
+_SIMULATED_ACTIONS = {
+    "incident": ("POST /api/v1/incidents/postmortem", "status-page",
+                 "Published incident summary; credit batch queued for {count} affected merchants"),
+    "billing": ("POST /api/v1/billing/review", "billing-system",
+                "Queued refund review for {sources}; customer notified"),
+    "support": ("POST /api/v1/tickets/{first_source}/reply", "support-desk",
+                "Reply sent to thread; ticket status → awaiting-customer"),
+    "sales": ("POST /api/v1/crm/opportunity", "crm",
+              "Opportunity drafted with next-step template"),
+    "crm-hygiene": ("PATCH /api/v1/crm/records", "crm",
+                    "Records merged/updated; {count} changes staged for review"),
+    "general": ("POST /api/v1/notes", "notes",
+                "Acknowledgement note filed"),
+}
+
+
+def _simulate_action(entry):
+    """Return a human-readable description of what executing this draft does."""
+    topic = entry["topic"]
+    sources = entry["sources"]
+    action_def = _SIMULATED_ACTIONS.get(topic)
+    if not action_def:
+        return f"Executed {entry['kind']} (generic)"
+    endpoint, system, template = action_def
+    first = sources[0] if sources else "unknown"
+    desc = template.format(count=len(sources), sources=", ".join(sources),
+                           first_source=first)
+    return f"[{system}] {endpoint}: {desc}"
+
+
 def approve(out_dir, ids=None):
-    """Execute approved queue items against local mock systems (receipts only
-    in the skeleton) and mark them approved. Returns executed queue ids."""
+    """Execute approved queue items against simulated local systems and mark them
+    approved. Each execution writes a detailed receipt with the action taken.
+    Returns executed queue ids."""
     out_dir = Path(out_dir)
     queue_path = out_dir / "approval-queue.json"
     queue = json.loads(queue_path.read_text())
@@ -47,8 +80,10 @@ def approve(out_dir, ids=None):
         if ids is not None and entry["queue_id"] not in ids:
             continue
         entry["status"] = "approved"
+        action_desc = _simulate_action(entry)
+        entry["executed_action"] = action_desc
         _receipt(out_dir, f"APPROVED {entry['queue_id']} [{entry['topic']}] "
-                          f"{entry['kind']} sources={','.join(entry['sources'])}")
+                          f"{entry['kind']} sources={','.join(entry['sources'])} → {action_desc}")
         done.append(entry["queue_id"])
     queue_path.write_text(json.dumps(queue, indent=2))
     return done

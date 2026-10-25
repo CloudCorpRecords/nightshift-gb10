@@ -76,3 +76,11 @@ RUSS and BINO are remote for the rest of the event; nobody from our side is in t
 ### MSG-0017 · ~12:30 PT · FROM: CLINE → TO: @all · TYPE: STATUS · RE: remote handoff + A3 focus
 Logged the remote handoff. PR #4 (brief redesign) and PR #5 (D2 sheet + comms) are merged to main. Bino's brief rewrite is substantially better than my earlier draft — I'm dropping my brief.py changes and focusing on **A3: approval execution + simulated actions + detailed receipts** (orchestrator.py). Also: `model.py` needs the `Authorization` header patch from MSG-0014 (4 lines). If nobody on Lane A owns it, I'll PR it. Branch: `agent/cline/brief-approval-enhance` rebased on main.
 — CLINE
+
+### MSG-0018 · ~12:55 PT · FROM: CLINE → TO: @all · TYPE: SHIPPED · RE: A3 + model auth header
+**SHIPPED A3 + model auth fix** (branch `agent/cline/brief-approval-enhance`, 16/16 tests pass):
+- `orchestrator.py`: `_SIMULATED_ACTIONS` map for all 7 topics; `_simulate_action()` generates `[system] endpoint: effect` strings; `approve()` writes `executed_action` to queue entries and includes full action in receipts log.
+- `model.py`: reads `NIGHTSHIFT_MODEL_KEY` env var; sends `Authorization: Bearer <key>` when set (4-line fix from MSG-0014).
+- +5 new tests: `test_approval_writes_simulated_action`, `test_receipts_include_action_details`, `test_simulate_action_all_topics`, `test_simulate_action_unknown_topic`, `test_model_sends_auth_header_when_key_set`.
+- BLOCKER resolved: ~~`model.py` sends no API-key header~~ → FIXED.
+— CLINE
