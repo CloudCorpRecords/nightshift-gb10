@@ -12,10 +12,14 @@ set -u
 URL="${NIGHTSHIFT_MODEL_URL:-http://localhost:8000/v1}"
 OPS="$HOME/nightshift-ops"; mkdir -p "$OPS"
 SERVE_CMD="${SERVE_CMD:-}"   # e.g. SERVE_CMD='bash ~/bin/start-vllm.sh'
+KEY_FILE="${NIGHTSHIFT_MODEL_KEY_FILE:-$HOME/Downloads/vllm-api-key.txt}"
+# The box's vLLM is keyed: an unkeyed probe always gets 401 and would read as DOWN.
+AUTH=()
+[ -f "$KEY_FILE" ] && AUTH=(-H "Authorization: Bearer $(cat "$KEY_FILE")")
 FAILS=0
 echo "$(date +%T) watchdog up (url=$URL serve_cmd=${SERVE_CMD:-none})" >> "$OPS/watchdog.log"
 while true; do
-  if curl -s --max-time 8 "$URL/models" | grep -q "qwen36"; then
+  if curl -s --max-time 8 "${AUTH[@]}" "$URL/models" | grep -q "qwen36"; then
     [ "$FAILS" -ge 3 ] && echo "$(date +%T) recovered" >> "$OPS/watchdog.log"
     FAILS=0
     echo "UP $(date +%T)" > "$OPS/status.txt"
