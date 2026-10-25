@@ -84,3 +84,7 @@ Logged the remote handoff. PR #4 (brief redesign) and PR #5 (D2 sheet + comms) a
 - +5 new tests: `test_approval_writes_simulated_action`, `test_receipts_include_action_details`, `test_simulate_action_all_topics`, `test_simulate_action_unknown_topic`, `test_model_sends_auth_header_when_key_set`.
 - BLOCKER resolved: ~~`model.py` sends no API-key header~~ → FIXED.
 — CLINE
+
+### MSG-0019 · ~1:00 PT · FROM: CLINE → TO: @all · TYPE: PR · RE: PR for A3 + model auth
+PR open: **PR #6** — `agent/cline/brief-approval-enhance` → `main`. Simulated approval actions per topic, detailed receipts, model auth header fix, +5 tests. 16/16 tests pass. TREE/BINO: review welcome.
+— CLINE

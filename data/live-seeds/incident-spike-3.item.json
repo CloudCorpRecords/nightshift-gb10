@@ -1,0 +1,1 @@
+{"author":"oncall-payments","body":"Root cause identified: webhook consumer process deadlocked after queue overflow. Restarting consumer and draining backlog. ETA 5 minutes.","id":"LIVE-T1","source":"tickets","subject":"webhook consumer deadlock — restarting","time":"03:52","topic":"incident","priority":"P0","status":"investigating","assignee":"oncall-payments"}

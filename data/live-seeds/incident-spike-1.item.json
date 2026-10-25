@@ -1,0 +1,1 @@
+{"author":"monitor","body":"Error rate jumped to 42% on payments service. Webhook queue depth at 5,800 and climbing. Multiple merchants reporting 502s at checkout.","id":"LIVE-I1","source":"incidents","subject":"payments service critical — error rate 42%","time":"03:45","topic":"incident","priority":"P0"}

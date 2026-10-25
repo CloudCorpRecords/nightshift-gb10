@@ -1,0 +1,1 @@
+{"author":"merchant@retailco.example","body":"Our checkout has been down for 20 minutes now. We're losing $2K/minute in abandoned carts. This is the third time this week. Someone needs to escalate this NOW.","id":"LIVE-E1","source":"inbox","subject":"Checkout down again — escalating to VP","time":"03:48","topic":"incident","priority":"P0","thread_id":"live-outage-retailco"}

@@ -118,6 +118,25 @@ class PipelineTest(unittest.TestCase):
             else:
                 os.environ.pop("NIGHTSHIFT_MODEL_KEY", None)
 
+    def test_live_watch_picks_up_incident_items(self):
+        """Live watcher rebuilds when incident .item.json files are dropped."""
+        from src.nightshift.livewatch import rebuild
+        with tempfile.TemporaryDirectory() as tmp:
+            watch_dir = Path(tmp, "live")
+            watch_dir.mkdir()
+            # Drop a realistic incident item
+            (watch_dir / "incident.item.json").write_text(json.dumps({
+                "id": "LIVE-I1", "source": "incidents", "time": "03:45",
+                "author": "monitor", "subject": "payments service critical",
+                "body": "Error rate jumped to 42%. Webhook queue at 5,800.",
+                "topic": "incident", "priority": "P0"}))
+            out = Path(tmp, "out")
+            result = rebuild(watch_dir, Path(tmp, "stage"), DATA / "docs", out)
+            self.assertEqual(result["items"], 1)
+            brief = Path(out, "morning-brief.md").read_text()
+            self.assertIn("payments service critical", brief)
+            self.assertIn("incident", brief.lower())
+
 
 if __name__ == "__main__":
     unittest.main()
