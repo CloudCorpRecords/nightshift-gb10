@@ -1,0 +1,56 @@
+# NightShift sandbox egress policy (Lane C4, RENE-CLAUDE).
+# Derived from the NemoClaw OpenClaw sandbox policy: same filesystem/process/landlock rules,
+# but network_policies is deny-all except managed_inference (https://inference.local -> OpenShell
+# gateway -> qwen36 on the box at localhost:8000). No cloud, no package registries, no GitHub.
+# Apply: openshell policy set nightshift --policy config/openshell/nightshift-egress.yaml --wait
+version: 1
+filesystem_policy:
+  include_workdir: true
+  read_only:
+  - /usr
+  - /lib
+  - /dev/urandom
+  - /app
+  - /etc
+  - /var/log
+  - /var/lib/dpkg
+  - /run/nvidia-persistenced
+  read_write:
+  - /tmp
+  - /dev/null
+  - /dev/pts
+  - /sandbox/.openclaw
+  - /sandbox/.nemoclaw
+  - /home/linuxbrew
+  - /dev/nvidiactl
+  - /dev/nvidia-uvm
+  - /dev/nvidia-uvm-tools
+  - /dev/nvidia-modeset
+  - /proc
+  - /dev/nvidia0
+landlock:
+  compatibility: best_effort
+process:
+  run_as_user: sandbox
+  run_as_group: sandbox
+network_policies:
+  managed_inference:
+    name: managed_inference
+    endpoints:
+    - host: inference.local
+      port: 443
+      protocol: rest
+      enforcement: enforce
+      rules:
+      - allow:
+          method: GET
+          path: /**
+      - allow:
+          method: POST
+          path: /**
+    binaries:
+    - path: /usr/local/bin/openclaw
+    - path: /usr/local/bin/node
+    - path: /usr/bin/node
+    - path: /usr/bin/curl
+    - path: /usr/bin/python3
