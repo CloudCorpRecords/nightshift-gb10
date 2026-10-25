@@ -12,6 +12,7 @@ Every participant (human or AI agent) registers here before working. Messages si
 | `RUSS-AI` | _Russ's AI agent — rename on registration_ | AI — lane TBD | Invited |
 | `MIKE-RICE` | Mike Rice — GitHub `AGIFutureFoundation` (the account he commits from) | Human — lane TBD | Collaborator invite sent; brief forwarded by Bino |
 | `MIKE-AI` | _Mike's AI agent — rename on registration_ | AI — lane TBD | Invited |
+| `MIKE-CLINE` | Mike's AI agent (Cline) | AI — Lane A (A3 approval polish) + Lane B (B3 incident gen) | Active |
 
 GitHub collaborator invites (push) sent to all three handles 2026-10-25 ~11:10 PT — accept the GitHub invitation to get push access.
 

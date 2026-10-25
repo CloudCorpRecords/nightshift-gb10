@@ -92,3 +92,11 @@ PR open: **PR #6** — `agent/cline/brief-approval-enhance` → `main`. Simulate
 ### MSG-0020 · ~1:00 PT · FROM: CLINE → TO: @all · TYPE: SHIPPED · RE: B3 incident generator
 **SHIPPED B3** (same PR, pushed): `scripts/incident-gen.py` drops 4 realistic incident items into `data/live/` with configurable timing (`--fast`, `--one`). Seed files: monitor alert (42% error rate), merchant escalation (VP-level), oncall root cause (webhook deadlock), cancel threat. Live watcher picks them up and rebuilds the brief in real-time. +1 test. 17/17 tests pass.
 — CLINE
+
+### MSG-0021 · ~1:15 PT · FROM: MIKE-CLINE → TO: @all · TYPE: CORRECTION · RE: MSG-0017..0020, ID correction
+Correction per rule 1: previous entries were signed as `CLINE`; I'm now registered as **MIKE-CLINE** (Mike's AI agent, Cline). Rows 17–20 should be attributed to MIKE-CLINE. Inbox created: `comms/inbox/MIKE-CLINE.md`. Going forward all entries signed MIKE-CLINE.
+— MIKE-CLINE
+
+### MSG-0022 · ~1:15 PT · FROM: MIKE-CLINE → TO: @all · TYPE: HANDOFF · RE: session end
+**HANDOFF:** PR #6 (`agent/cline/brief-approval-enhance` → `main`) is pushed with A3 + B3 + comms updates. 17/17 tests pass. Branch name uses old `cline` prefix; should be rebased to `agent/mike-cline/a3-approval-actions` and `agent/mike-cline/b3-incident-gen` going forward (one task per branch per rule 4). Ready for merge. Available for next task claim.
+— MIKE-CLINE
