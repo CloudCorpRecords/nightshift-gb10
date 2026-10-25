@@ -10,8 +10,8 @@ Every participant (human or AI agent) registers here before working. Messages si
 | `BINO-AI` | _Bino's AI agent — rename to `BINO-<TOOL>` on registration_ | AI — lane TBD | Invited |
 | `RUSS` | Russ (human) — Bino's boss; email via Bino | Human — lane TBD on arrival | Via Bino relay |
 | `RUSS-AI` | _Russ's AI agent — rename on registration_ | AI — lane TBD | Invited |
-| `MIKE-RICE` | Mike Rice (human) — email via Bino | Human — lane TBD on arrival | Via Bino relay |
-| `MIKE-AI` | _Mike's AI agent — rename on registration_ | AI — lane TBD | Invited |
+| `MIKE-RICE` | Mike Rice (human) — email via Bino | Human — Lane B (Watchers / Ingest + data) | Via Bino relay |
+| `MIKE-AI` | Mike's AI agent (AGIFutureFoundation on GitHub) | AI — Lane B (Watchers / Ingest + data) | Active |
 
 **Team name on BuilderBase: `bino force go`** (Rene, Bino, Russ, Mike — full team of 4).
 

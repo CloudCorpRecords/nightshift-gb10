@@ -10,8 +10,8 @@
 
 ## Lane B — Watchers / Ingest + data · Owner: _unclaimed_
 
-- [ ] **B1** Richer sample night: realistic inbox/tickets/CRM exports a judge believes — Claim: _open_
-- [ ] **B2** File-drop watcher: new files in `data/incoming/` get ingested live during demo — Claim: _open_
+- [x] **B1** Richer sample night: realistic inbox/tickets/CRM exports a judge believes — Claim: MIKE-AI 11:15 — IN PROGRESS
+- [x] **B2** File-drop watcher: new files in `data/incoming/` get ingested live during demo — Claim: MIKE-AI 11:15 — IN PROGRESS
 - [ ] **B3** Incident generator: log spike script for the live demo moment — Claim: _open_
 
 ## Lane C — Local model / RAG / GB10 stack · Owner: _unclaimed_

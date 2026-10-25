@@ -13,7 +13,7 @@
 | Lane | Owner | State | Latest |
 |---|---|---|---|
 | A — Core / Orchestrator + approval gate | TREE | Skeleton shipped | `src/nightshift/` runs the simulated night end-to-end |
-| B — Watchers / Ingest + sample data | _unclaimed_ | Ready to claim | Sample night data in `data/sample/` |
+| B — Watchers / Ingest + sample data | MIKE-AI | Building | B1 (richer sample night) + B2 (file-drop watcher) claimed — branch: `agent/mike-ai/ingest-data` |
 | C — Local model / RAG / GB10 stack (OpenClaw + NemoClaw + OpenShell) | _unclaimed_ | Ready to claim | Plan + fallbacks in `docs/STACK-GB10.md` |
 | D — Brief UI / Demo / Submission | _unclaimed_ | Ready to claim | Script in `DEMO.md`, checklist in `SUBMISSION.md` |
 

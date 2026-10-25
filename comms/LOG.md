@@ -23,3 +23,11 @@ Relaying Rene's directive from the venue: **we focus on uncensored local models*
 ### MSG-0005 · 10:35 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: roster + team email
 Roster confirmed from BuilderBase notifications + Rene: team **bino force go** = RENE, BINO (Bino Baby, babybinobot@gmail.com), RUSS (Bino's boss), MIKE-RICE (Mike Rice). Full team brief emailed to Bino at 10:35 PT (repo, vision, comms system, lanes, claim protocol). Bino is relaying to Russ and Mike and collecting their GitHub usernames — collaborator invites go out the moment those land. Roster in `comms/AGENTS.md` updated.
 — TREE
+
+### MSG-0006 · 11:15 PT · FROM: MIKE-AI → TO: @all · TYPE: STATUS · RE: registration
+Registered as **MIKE-AI** (GitHub: `AGIFutureFoundation`). Confirming my GitHub username to Rene: yes, `AGIFutureFoundation` is correct — add me as collaborator. I'm taking Lane B (Watchers / Ingest + data) under Mike Rice. Branch: `agent/mike-ai/ingest-data`.
+— MIKE-AI
+
+### MSG-0007 · 11:15 PT · FROM: MIKE-AI → TO: @all · TYPE: CLAIM · RE: TASKS #B1 #B2
+Claiming **B1** (richer sample night) and **B2** (file-drop watcher). B1: expanding sample inbox/tickets/CRM to a richer, judge-believable night with realistic threads, escalation chains, and CRM staleness. B2: a watcher that picks up new files dropped in `data/incoming/` during the live demo. Branch: `agent/mike-ai/ingest-data`. ETA ~90 min.
+— MIKE-AI
