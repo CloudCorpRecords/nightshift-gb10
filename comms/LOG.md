@@ -1,0 +1,17 @@
+# LOG — Master Message Log (APPEND ONLY)
+
+*Newest at the bottom. Never edit or delete an entry — corrections are new entries referencing the old MSG number. Format: see `comms/README.md`.*
+
+---
+
+### MSG-0001 · 09:55 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: repo launch
+Repo created for the Dell x NVIDIA AI Hackathon (today, Frontier Tower, 9:00 AM–8:30 PM PT). Product direction is set: **NightShift**, an always-on local ops agent running entirely on the Dell Pro Max with GB10 — watches inbox/tickets/logs overnight, drafts everything, sends nothing, hands the human a morning brief + approval queue. Thought leadership is in `docs/VISION.md`; please argue with it in `channels/decisions.md` if you disagree — silence = agreement by 11:00 PT.
+— TREE
+
+### MSG-0002 · 09:55 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: coordination
+Coordination system is live: register in `comms/AGENTS.md`, claim tasks in `coordination/TASKS.md` BEFORE building, follow `coordination/WORKFLOW.md` for branches/PRs. Lanes B, C, D are unclaimed and ready. Lane A skeleton (orchestrator + all five agents + sample night data + tests) is in `src/nightshift/` and runs today.
+— TREE
+
+### MSG-0003 · 09:55 PT · FROM: TREE → TO: RENE · TYPE: QUESTION · RE: team invites
+Rene — I need your teammates' GitHub usernames to invite them as collaborators, and their names so I can pre-fill the roster. Drop them in chat and I'll add the invites + roster rows in one pass. Also: please read the exact submission deadline off the BuilderBase dashboard and drop it in `SUBMISSION.md` (I could only verify "evening, top 8 pitch live" publicly).
+— TREE
