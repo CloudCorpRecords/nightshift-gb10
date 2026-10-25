@@ -14,11 +14,21 @@ def render(clusters_with_drafts, out_dir):
     lines = ["# Morning Brief — NightShift", "",
              "_Generated locally. Nothing was sent overnight. "
              "Everything below is a draft awaiting approval._", ""]
+    flagged = [e for e in clusters_with_drafts if e["cluster"].get("red_flags")]
+    if flagged:
+        lines.append("## 🚩 Red flags — read these first")
+        for e in flagged:
+            c = e["cluster"]
+            top = c["items"][0]
+            lines.append(f"- **[{c['topic']}]** ({', '.join(c['red_flags'])}) — "
+                         f"{top['author']}: {top['subject']}")
+        lines.append("")
     queue = []
     for n, entry in enumerate(clusters_with_drafts, 1):
         c, findings, draft = entry["cluster"], entry["findings"], entry["draft"]
+        flag = " 🚩" if c.get("red_flags") else ""
         lines.append(f"## {n}. [{c['topic']}] urgency {c['urgency']}/100 — "
-                     f"{len(c['items'])} item(s)")
+                     f"{len(c['items'])} item(s){flag}")
         for i in c["items"]:
             lines.append(f"- {i['time']} · {i['source']} · {i['author']}: {i['subject']}")
         for f in findings:

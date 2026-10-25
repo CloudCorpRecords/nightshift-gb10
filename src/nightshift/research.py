@@ -10,8 +10,15 @@ from pathlib import Path
 STOPWORDS = {"about", "after", "again", "every", "first", "since", "their",
              "there", "these", "under", "until", "would", "customer", "customers"}
 
+# A finding is cited only when a doc line matches at least this many query
+# terms. Below it, retrieval is guessing — and a brief that cites a guess
+# teaches the human to ignore citations. (Raised per BINO's Lane D flag,
+# 2026-10-25: brief-side filtering hid the symptom; the threshold belongs
+# here, at the source.)
+MIN_HITS = 3
 
-def search(docs_dir, query_terms, limit=2):
+
+def search(docs_dir, query_terms, limit=2, min_hits=MIN_HITS):
     docs_dir = Path(docs_dir)
     scored = []
     if not docs_dir.exists():
@@ -24,7 +31,7 @@ def search(docs_dir, query_terms, limit=2):
             hits = sum(1 for t in terms if t in low)
             if hits > best_hits and line.strip():
                 best_line, best_hits = line.strip(), hits
-        if best_line:
+        if best_line and best_hits >= min_hits:
             scored.append({"doc": doc.name, "line": best_line, "hits": best_hits})
     scored.sort(key=lambda f: (-f["hits"], f["doc"]))
     return scored[:limit]
