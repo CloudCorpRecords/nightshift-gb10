@@ -17,9 +17,9 @@ from pathlib import Path
 
 from .watchers import night_key
 
-# A local doc is cited only when at least this many of the cluster's words
-# match one line of it. Weaker matches are noise the human shouldn't read.
-MIN_HITS = 3
+# A local doc is cited only when its retrieval quality score meets the
+# threshold. Weaker matches are noise the human shouldn't read.
+from .research import MIN_QUALITY
 
 TOPIC_LABEL = {"incident": "Incident", "billing": "Billing", "support": "Support",
                "sales": "Sales", "crm-hygiene": "CRM hygiene", "general": "General",
@@ -32,7 +32,8 @@ APPROVE_IDS = "python3 -m src.nightshift.main approve --ids"
 # ---------------------------------------------------------------- model --
 
 def _strong(findings):
-    return [f for f in findings if f.get("hits", 0) >= MIN_HITS]
+    return [f for f in findings
+            if f.get("quality", 0) >= MIN_QUALITY or f.get("hits", 0) >= 3]
 
 
 def _label(topic):

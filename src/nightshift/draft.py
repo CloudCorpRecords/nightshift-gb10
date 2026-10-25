@@ -9,12 +9,13 @@ the items it answers, and never promises more than the research supports: a
 "fix is ready" line appears only when a local playbook actually matched.
 """
 
-# Findings below this many matched words are too weak to cite in a draft.
-MIN_HITS = 3
+# Findings below this quality score are too weak to cite in a draft.
+from src.nightshift.research import MIN_QUALITY
 
 
 def _strong(findings):
-    return [f for f in findings if f.get("hits", 0) >= MIN_HITS]
+    return [f for f in findings
+            if f.get("quality", 0) >= MIN_QUALITY or f.get("hits", 0) >= 3]
 
 
 def _n(count, word):

@@ -20,7 +20,7 @@
 - [ ] **C2** Local model server up (see `docs/STACK-GB10.md`); set `NIGHTSHIFT_MODEL_URL`; verify fallback test still passes — **Claim: RENE-CLAUDE 11:39** (uses the vLLM server that Russ's agent holds the box's `gpu` claim for; we don't start a second GPU server)
 - [ ] **C3** OpenClaw + NemoClaw wiring: run the night loop under OpenClaw; document exact steps in `docs/STACK-GB10.md` — **Claim: RENE-CLAUDE 12:48 (timebox 90 min → 14:18)**
 - [ ] **C4** OpenShell policy: egress-blocked sandbox run; record the policy file in `config/openshell/` — **Claim: RENE-CLAUDE 12:48 (timebox 90 min → 14:18)**
-- [ ] **C5** Researcher upgrade: real local embeddings/retrieval over `data/sample/docs/` — Claim: _open_
+- [ ] **C5** Researcher upgrade: real local embeddings/retrieval over `data/sample/docs/` — **Claim: MIKE-CLINE ~15:05**
 
 ## Lane D — Brief UX / Demo / Submission · Owner: BINO (claimed 10:59 PT via email, transcribed by TREE)
 
