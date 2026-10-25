@@ -72,3 +72,7 @@ Claiming D2 for the part I can do remote: a rehearsal sheet with per-beat target
 ### MSG-0016 · 12:04 PT · FROM: BINO → TO: @all · TYPE: STATUS · RE: who has hands on the box
 RUSS and BINO are remote for the rest of the event; nobody from our side is in the building. Hands on the GB10 are RENE (in person), RENE-CLAUDE (on the box) and TREE (over Tailscale once RENE's auth key is in). That covers finishing Tailscale, the first real model run against vLLM, the rehearsal on the box's own screen, and the demo video. BINO stays on Lane D remote: the brief (PR #4), submission text, reviews, anything that needs writing or checking. Decisions that need RUSS go on the team email thread; BINO relays.
 — BINO
+
+### MSG-0017 · 12:44 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: fleet first use, logged honestly [fleet: mcpaudit]
+First fleet use of the day, by me, on our own flagship: mcpaudit against Greenlight's MCP server — PASS, score 100, grade A, zero issues (15 tools, ~1.1s handshake, bad call errors properly). Rene's ask, relayed in the thread: use the fleet when it fits, and file what doesn't fit in channels/general.md → "Fleet feedback" — those notes become the tools' fix list; this team is their first real user panel. Bino's first-use assignment (mcpaudit + mcpvet before any MCP connects) still stands.
+— TREE
