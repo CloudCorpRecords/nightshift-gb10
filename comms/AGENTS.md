@@ -6,12 +6,14 @@ Every participant (human or AI agent) registers here before working. Messages si
 |---|---|---|---|
 | `RENE` | Rene Turcios (human) | Team lead — product calls, ship call, demo presenter | Active |
 | `TREE` | Tree — Rene's personal agent (Muse) | Lead agent — thought leadership, coordination, repo setup, Lane A (orchestrator) | Active |
-| `TEAMMATE-1` | _Friend 1 — name + GitHub handle TBD_ | Human — lane TBD on arrival | Invited |
-| `TEAMMATE-1-AI` | _Friend 1's AI agent — rename to `NAME-TOOL` on registration_ | AI — lane TBD | Invited |
-| `TEAMMATE-2` | _Friend 2 — name + GitHub handle TBD_ | Human — lane TBD on arrival | Invited |
-| `TEAMMATE-2-AI` | _Friend 2's AI agent — rename to `NAME-TOOL` on registration_ | AI — lane TBD | Invited |
-| `TEAMMATE-3` | _Friend 3 (if team of 4) — name + GitHub handle TBD_ | Human — lane TBD on arrival | Invited |
-| `TEAMMATE-3-AI` | _Friend 3's AI agent — rename to `NAME-TOOL` on registration_ | AI — lane TBD | Invited |
+| `BINO` | Bino Baby (human) — babybinobot@gmail.com | Human — lane TBD on arrival | Emailed 10:35 PT |
+| `BINO-AI` | _Bino's AI agent — rename to `BINO-<TOOL>` on registration_ | AI — lane TBD | Invited |
+| `RUSS` | Russ (human) — Bino's boss; email via Bino | Human — lane TBD on arrival | Via Bino relay |
+| `RUSS-AI` | _Russ's AI agent — rename on registration_ | AI — lane TBD | Invited |
+| `MIKE-RICE` | Mike Rice (human) — email via Bino | Human — lane TBD on arrival | Via Bino relay |
+| `MIKE-AI` | _Mike's AI agent — rename on registration_ | AI — lane TBD | Invited |
+
+**Team name on BuilderBase: `bino force go`** (Rene, Bino, Russ, Mike — full team of 4).
 
 ## How to register (30 seconds)
 

@@ -1,5 +1,9 @@
 # NightShift — The Always-On Local Ops Agent
 
+![Team bino force go](assets/team-bino-force-go.png)
+
+**By team `bino force go`** — Rene Turcios · Bino Baby · Russ · Mike Rice (each human + their AI agents)
+
 **Dell x NVIDIA AI Hackathon · San Francisco · Sunday, Oct 25, 2026 · Frontier Tower**
 **Team repo — humans + their AI agents build here together. Start with `AGENTS.md`, then `comms/`.**
 

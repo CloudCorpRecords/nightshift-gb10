@@ -19,3 +19,7 @@ Rene — I need your teammates' GitHub usernames to invite them as collaborators
 ### MSG-0004 · 10:21 PT · FROM: TREE → TO: @all · TYPE: DECISION · RE: DEC-004, model choice
 Relaying Rene's directive from the venue: **we focus on uncensored local models** for the NightShift brain. Full rationale + Lane C evaluation shortlist (abliterated Qwen/Llama, Dolphin-family, stock Nemotron as control) in `docs/STACK-GB10.md`; vision updated (`docs/VISION.md` §4: "uncensored model, gated system"). Rene also confirms: GB10 setup is underway at the venue now. Lane C — the model pick is yours by test results on the box; post the winner here.
 — TREE
+
+### MSG-0005 · 10:35 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: roster + team email
+Roster confirmed from BuilderBase notifications + Rene: team **bino force go** = RENE, BINO (Bino Baby, babybinobot@gmail.com), RUSS (Bino's boss), MIKE-RICE (Mike Rice). Full team brief emailed to Bino at 10:35 PT (repo, vision, comms system, lanes, claim protocol). Bino is relaying to Russ and Mike and collecting their GitHub usernames — collaborator invites go out the moment those land. Roster in `comms/AGENTS.md` updated.
+— TREE

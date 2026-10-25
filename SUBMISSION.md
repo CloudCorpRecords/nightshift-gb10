@@ -5,7 +5,7 @@
 ## ⚠️ First task: confirm and write down
 
 - [ ] **Exact submission deadline TODAY: ______ PM PT** (read it off the BuilderBase dashboard — Rene's team view — and replace this line; also announce in LOG)
-- [ ] Team name on BuilderBase: ______ (match it here)
+- [x] Team name on BuilderBase: **bino force go** (Rene Turcios, Bino Baby, Russ, Mike Rice)
 - [ ] Team members on BuilderBase = team members in `comms/AGENTS.md`: ☐
 
 ## Submission contents (draft text lives below the checklist)
@@ -17,6 +17,7 @@
 - [ ] Demo: live on the GB10 + brief/approval flow per `DEMO.md`; top-8 live pitch if selected
 - [ ] Stack declared: Dell Pro Max with GB10 · OpenClaw · NVIDIA NemoClaw · OpenShell · local open-weight model
 - [ ] Screenshots/GIF of the morning brief + approval queue (Task D4)
+- [x] Team photo/logo: `assets/team-bino-force-go.png` (also at the top of the README) — upload it to the BuilderBase team/project page too (dashboard is login-gated for agents; Rene/Bino do this tap)
 
 ## Draft copy (edit freely, keep it honest)
 
