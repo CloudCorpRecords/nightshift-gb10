@@ -11,7 +11,6 @@ the out dir. Poll-based on purpose: zero dependencies, works offline on the
 GB10, and a human can demo it by dragging a file into the folder.
 """
 import json
-import shutil
 import time
 from pathlib import Path
 

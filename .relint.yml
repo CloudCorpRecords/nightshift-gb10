@@ -1,0 +1,12 @@
+- name: No print statements in prod
+  pattern: '\bprint\s*\('
+  path: 'src/nightshift/(?!main\.py).*.py'
+  error: 'No print statements outside main.py'
+- name: No eval/exec
+  pattern: '\b(eval|exec)\s*\('
+  path: '.*'
+  error: 'No eval/exec allowed'
+- name: No hardcoded secrets
+  pattern: '(password|secret|key|token)\s*=\s*["'\'''][^"'\''']+["'\''']'
+  path: '.*'
+  error: 'Possible hardcoded secret'

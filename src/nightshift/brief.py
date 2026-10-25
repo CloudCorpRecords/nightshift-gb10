@@ -112,10 +112,10 @@ def render_markdown(b):
             L.append(f"- **{s['qid'] or s['label']} · {s['label']}** ({', '.join(s['red_flags'])}) — "
                      f"{i['author']}: {i['subject']}")
         L.append("")
+    src_summary = " · ".join(f"{b['counts'][s]} {s}" for s in SOURCE_ORDER if b['counts'][s])
     L += ["## At a glance", "",
           "| | |", "|---|---|",
-          f"| Items ingested | {b['items']} (" +
-          " · ".join(f"{b['counts'][s]} {s}" for s in SOURCE_ORDER if b['counts'][s]) + ") |",
+          f"| Items ingested | {b['items']} ({src_summary}) |",
           f"| Clusters | {b['clusters']} |",
           f"| Drafts queued | {b['queued']} |",
           f"| Sent | {b['sent']} |", ""]
@@ -231,7 +231,7 @@ def _color(u):
 
 def render_html(b):
     e = _html.escape
-    H = [f"<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">",
+    H = ["<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">",
          "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
          "<title>Morning Brief · NightShift</title>", f"<style>{CSS}</style></head>",
          "<body><div class=\"wrap\"><header>", "<h1>Morning Brief</h1>",
