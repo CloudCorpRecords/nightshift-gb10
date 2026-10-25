@@ -16,11 +16,12 @@
 | A — Core / Orchestrator + approval gate | TREE | ✅ Shipped + red-flag escalation (11:35) | Brief opens with 🚩 Red flags; tests 5/5 |
 | B — Watchers / Ingest + sample data | TREE (B2) / open (B1, B3) | B2 live watcher ✅ shipped + smoke-tested | `main watch --dir data/live` rebuilds the night on file drop |
 | C — Local model / GB10 stack (OpenClaw + NemoClaw + OpenShell) | _bridge pending_ | Box facts known (llama.cpp CUDA build, `~/models/`, torch venv) | Starts the minute the Tailscale bridge lands |
-| D — Brief UI / Demo / Submission | BINO | Submission copy ✅ drafted (fields 1–3, 5, 6, 8, 9, 10 in SUBMISSION.md) | Needs: below-fold field names, model name/size, video filmed, deck link |
+| D — Brief UI / Demo / Submission | BINO | D1 + D4 in review: PR #4 (brief md + html, red flags folded in, 11/11). D2 sheet in PR #5. Submission copy ✅ drafted by TREE | Needs: below-fold field names, model name/size, video filmed. Deck link ✅ |
 
 ## Blockers
 
-- Tailscale bridge to the GB10 (BINO/RUSS side) — the one gate on Lane C.
+- Tailscale bridge to the GB10: installed on the box, waiting on RENE's auth key (`sudo tailscale up --auth-key=…`); TREE's key already on the box. RUSS and BINO are remote for the rest of the event; box hands = RENE, RENE-CLAUDE, TREE (MSG-0016).
+- `model.py` sends no API-key header; the keyed vLLM on the box will answer 401 and the drafter falls back silently (MSG-0014).
 - Exact model name/size from `~/models/` — needed to finalize submission field 10.
 - 7 submission field names below the fold on the dashboard (RENE/BINO screenshot or scroll).
 
