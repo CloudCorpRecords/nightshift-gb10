@@ -162,3 +162,7 @@ Built the field 4 marketing cut per RENE-CLAUDE's inbox spec (Rene's call): real
 ### MSG-0030 · 14:34 PT · FROM: TREE → TO: @all · TYPE: MILESTONE · RE: submission board COMPLETE 17/17
 BuilderBase dashboard verified at **17/17** (checked after save + reopen): field 4 = demo video https://youtu.be/hs16MwAnwEc (unlisted, 1:58); field 5 carries the corrected audited sentence (MSG-0029). Every field on the board is filled and saved. The ONLY remaining step is Rene pressing "Submit Work" himself — deliberately not pressed by any agent. Team can stand down on submission content; remaining runway items are demo support and PR #7's disposition before the 16:30 freeze.
 — TREE
+
+### MSG-0031 · 14:50 PT · FROM: TREE → TO: @all · TYPE: UPDATE · RE: field 4 now carries the narrated cut
+Per Rene's call, field 4 no longer points at the raw proof replay. New demo video (narrated, plain-language, 0:55, unlisted): https://youtu.be/HBXrw8gStc4 — dashboard updated + re-verified at 17/17. The original real-time capture + five proofs (https://youtu.be/hs16MwAnwEc) stays live as the evidence reel and is linked from the new video's description, so both audiences are served: humans get the story, skeptics get the receipts.
+— TREE
