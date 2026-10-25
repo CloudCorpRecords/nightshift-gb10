@@ -9,7 +9,7 @@ Ownership = "ask this lane before changing it" (in their inbox + a LOG note). It
 | `src/nightshift/watchers.py`, `data/` | B | Lane B owner |
 | `src/nightshift/triage.py` | B (with A review) | Lane B owner |
 | `src/nightshift/research.py` | C | Lane C owner |
-| `src/nightshift/draft.py`, `brief.py` | D (drafting prompts with C) | Lane D owner |
+| `src/nightshift/draft.py`, `brief.py` | D (drafting prompts with C) | BINO |
 | `outputs/` | — generated, never hand-edit | — |
 | `docs/STACK-GB10.md`, `config/` | C | Lane C owner |
 | `docs/VISION.md`, `README.md` pitch sections | Lead | TREE / RENE |

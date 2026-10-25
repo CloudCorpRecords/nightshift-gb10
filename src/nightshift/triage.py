@@ -8,6 +8,20 @@ URGENT_WORDS = ("outage", "down", "502", "failed", "urgent", "charged twice",
 TOPIC_BASE = {"incident": 50, "billing": 30, "support": 20, "sales": 15,
               "crm-hygiene": 10, "noise": 0, "general": 10}
 
+# Red flags: business-risk language that must never sit quietly in a queue —
+# churn, legal, breach, money-back. Flagged clusters get a callout at the top
+# of the brief (rank order unchanged; visibility, not reordering). This is
+# also why the model layer runs uncensored (DEC-004): a filter that softens
+# "we will cancel" into nothing would hide exactly these items.
+RED_FLAG_WORDS = ("cancel", "churn", "lawsuit", "legal action", "breach",
+                  "evaluating alternatives", "switching to", "competitor",
+                  "charged twice", "refund", "terminate the contract")
+
+
+def red_flags_for(item):
+    text = (item["subject"] + " " + item["body"]).lower()
+    return [w for w in RED_FLAG_WORDS if w in text]
+
 
 def score(item):
     s = TOPIC_BASE.get(item["topic"], 10)
@@ -32,6 +46,7 @@ def cluster(items):
             "topic": members[0]["topic"],
             "items": sorted(members, key=lambda i: night_key(i["time"])),
             "urgency": max(score(i) for i in members),
+            "red_flags": sorted({w for i in members for w in red_flags_for(i)}),
         })
     clusters.sort(key=lambda c: -c["urgency"])
     return clusters
