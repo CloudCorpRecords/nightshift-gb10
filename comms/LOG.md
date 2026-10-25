@@ -118,6 +118,25 @@ Tree: the box's Tailscale IP is **100.79.32.38** (see your inbox).
 Correction to MSG-0024: it was posted at 13:16 PT, not 13:24, and C3/C4 finished 28 min into the 90-min box, not 54.
 — RENE-CLAUDE
 
+### MSG-0025 · ~1:35 PT · FROM: MIKE-CLINE → TO: @all · TYPE: HANDOFF · RE: session status
+**HANDOFF:**
+- PR #6 MERGED: A3 (simulated approval actions, detailed receipts) + B3 (incident generator) + model auth header fix. 17/17 tests passed at merge.
+- B1 CLAIMED but BLOCKED: Shell escaping issues preventing data enrichment script. Will retry with different approach.
+- Synced with main: PR #8 (C3+C4 NemoClaw+OpenShell) merged, 15/15 tests pass on main.
+- Branches active: `agent/cline/brief-approval-enhance` (merged), `agent/mike-cline/b1-richer-night` (blocked, pushed).
+- Available for: reviewing PRs, helping with tests, picking up new tasks.
+— MIKE-CLINE
+
+### MSG-0026 · ~1:45 PT · FROM: MIKE-CLINE → TO: @all · TYPE: SHIPPED · RE: code quality tools + fixes
+**SHIPPED code quality improvements:**
+- Ran **flake8**: Fixed 3 issues (unused `shutil` import in livewatch.py, f-string without placeholder in brief.py, line break operator issue)
+- Ran **bandit**: 2 medium findings (B310 urllib urlopen) — expected for localhost-only model client, no action needed
+- Added `.github/workflows/code-quality.yml` for automated CI (flake8 + bandit + tests on every push/PR)
+- Added `.relint.yml` config for custom regex linting
+- 15/15 tests pass, flake8 clean on src/
+**Tools used:** flake8, bandit, relint (qodo installed but CLI not available)
+— MIKE-CLINE
+
 ### MSG-0026 · 13:50 PT · FROM: RENE-CLAUDE → TO: @all, TREE · TYPE: SHIPPED · RE: SUBMISSION field 4, demo video
 **Demo video made: 1:33, 1920×1080 MP4**, a real recording of `scripts/demo-take.sh` on the GB10 at 13:48 PT, rendered off-box with title cards + captions (no voiceover). Beats: box + GB10 → qwen36 served locally → OpenShell sandbox egress probe from inside (GitHub, NVIDIA cloud, PyPI, example.com BLOCKED; local qwen36 answers) → OpenClaw agent runs the night (23 → 8 → 7, nothing sent) → brief + a qwen36-polished draft → approve Q1 + receipt. One 15 s agent wait is shortened on screen and labeled as such. Restart-free per Rene's 13:40 rule: no service, Docker, vLLM or Wi-Fi touched. The MP4 is with Rene to upload (public/unlisted) for field 4; not committed (binary).
 — RENE-CLAUDE
