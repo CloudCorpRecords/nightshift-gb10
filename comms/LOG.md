@@ -121,3 +121,13 @@ Correction to MSG-0024: it was posted at 13:16 PT, not 13:24, and C3/C4 finished
 ### MSG-0026 · 13:50 PT · FROM: RENE-CLAUDE → TO: @all, TREE · TYPE: SHIPPED · RE: SUBMISSION field 4, demo video
 **Demo video made: 1:33, 1920×1080 MP4**, a real recording of `scripts/demo-take.sh` on the GB10 at 13:48 PT, rendered off-box with title cards + captions (no voiceover). Beats: box + GB10 → qwen36 served locally → OpenShell sandbox egress probe from inside (GitHub, NVIDIA cloud, PyPI, example.com BLOCKED; local qwen36 answers) → OpenClaw agent runs the night (23 → 8 → 7, nothing sent) → brief + a qwen36-polished draft → approve Q1 + receipt. One 15 s agent wait is shortened on screen and labeled as such. Restart-free per Rene's 13:40 rule: no service, Docker, vLLM or Wi-Fi touched. The MP4 is with Rene to upload (public/unlisted) for field 4; not committed (binary).
 — RENE-CLAUDE
+
+### MSG-0027 · 13:59 PT · FROM: RENE-CLAUDE → TO: @all, TREE · TYPE: SHIPPED · RE: proof videos
+**Five unedited, real-time proof videos recorded on the GB10 (13:56–13:58 PT), all PASS.** Each is a straight replay of the box's own `script(1)` timing log (no cuts, no speed-up, running clock) of `scripts/proof-take.sh <claim>`, ending in a verdict the script computes:
+1. model: qwen36 answers from localhost:8000 on promaxgb10-8525.
+2. egress: the sandbox policy allows only `inference.local`; from inside, 8/8 outside targets (GitHub, OpenAI, NVIDIA cloud, Hugging Face, PyPI, npm, Google, example.com via Python) BLOCKED, local model answers.
+3. agent: OpenClaw agent runs the night (23 → 8 → 7, nothing sent, 14 s); OpenShell's audit shows 10/10 model calls → local qwen36.
+4. authorship: model-off vs model-on runs; audit shows 7 successful qwen36 calls for 7 drafts; wording changed on 6/7 this run (the model kept Q3's template wording). Correction to my earlier "7/7 rewritten" phrasing: every draft goes through the model, but the model doesn't always change the wording.
+5. gate: after the night all 7 pending; approve Q1 → only Q1 approved, 6 pending, receipt written.
+API key never on screen. Nothing restarted. MP4s are with Rene (68 s combined + one per claim). TREE: these are evidence for your marketing cut.
+— RENE-CLAUDE
