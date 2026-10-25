@@ -8,6 +8,7 @@ Env:
   NIGHTSHIFT_MODEL_URL      e.g. http://localhost:8000/v1 (unset = no model)
   NIGHTSHIFT_MODEL          served model name; unset = ask the server (/models)
   NIGHTSHIFT_MODEL_TIMEOUT  seconds per request (default 20)
+  NIGHTSHIFT_MODEL_KEY      bearer token if the server is keyed (vLLM --api-key)
 """
 import json
 import os
@@ -21,17 +22,25 @@ _THINK = re.compile(r"<think>.*?</think>", re.DOTALL)
 
 
 class LocalModel:
-    def __init__(self, url=None, model=None, timeout=None):
+    def __init__(self, url=None, model=None, timeout=None, key=None):
         self.url = (url if url is not None else os.environ.get("NIGHTSHIFT_MODEL_URL", "")).rstrip("/")
         self.model = model or os.environ.get("NIGHTSHIFT_MODEL", "")
         self.timeout = float(timeout or os.environ.get("NIGHTSHIFT_MODEL_TIMEOUT", DEFAULT_TIMEOUT_S))
+        self.key = key if key is not None else os.environ.get("NIGHTSHIFT_MODEL_KEY", "")
         self.last_error = None
 
     def available(self):
         return bool(self.url)
 
+    def _headers(self):
+        h = {"Content-Type": "application/json"}
+        if self.key:
+            h["Authorization"] = "Bearer " + self.key
+        return h
+
     def _get(self, path):
-        with urllib.request.urlopen(self.url + path, timeout=self.timeout) as resp:
+        req = urllib.request.Request(self.url + path, headers=self._headers())
+        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
             return json.loads(resp.read())
 
     def model_name(self):
@@ -55,8 +64,7 @@ class LocalModel:
                 "chat_template_kwargs": {"enable_thinking": False},
             }).encode()
             req = urllib.request.Request(
-                self.url + "/chat/completions", data=payload,
-                headers={"Content-Type": "application/json"})
+                self.url + "/chat/completions", data=payload, headers=self._headers())
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 data = json.loads(resp.read())
             text = _THINK.sub("", data["choices"][0]["message"].get("content") or "").strip()

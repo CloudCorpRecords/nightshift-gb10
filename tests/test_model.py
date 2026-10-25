@@ -14,10 +14,17 @@ class FakeVLLM(BaseHTTPRequestHandler):
     """Mimics vLLM: serves one named model and rejects any other name."""
     served = "qwen36-heretic"
     reply = "<think>hmm</think>\nPolished draft."
+    require_key = None
     seen = []
 
     def log_message(self, *args):
         pass
+
+    def _unauthorized(self):
+        if self.require_key and self.headers.get("Authorization") != "Bearer " + self.require_key:
+            self._send(401, {"error": "unauthorized"})
+            return True
+        return False
 
     def _send(self, code, body):
         data = json.dumps(body).encode()
@@ -28,10 +35,14 @@ class FakeVLLM(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
+        if self._unauthorized():
+            return
         self._send(200, {"data": [{"id": self.served}]})
 
     def do_POST(self):
         body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+        if self._unauthorized():
+            return
         FakeVLLM.seen.append(body)
         if body["model"] != self.served:
             return self._send(404, {"error": "model not found"})
@@ -59,6 +70,17 @@ class LocalModelTest(unittest.TestCase):
         model = LocalModel(url=self.url, model="local-model")
         self.assertIsNone(model.complete("polish this"))
         self.assertIn("404", model.last_error)
+
+    def test_keyed_server_needs_bearer_key(self):
+        FakeVLLM.require_key = "team-key"
+        try:
+            self.assertEqual(LocalModel(url=self.url, model="", key="team-key").complete("x"),
+                             "Polished draft.")
+            keyless = LocalModel(url=self.url, model="", key="")
+            self.assertIsNone(keyless.complete("x"))
+            self.assertIn("401", keyless.last_error)
+        finally:
+            FakeVLLM.require_key = None
 
     def test_empty_url_means_no_model_even_if_env_set(self):
         import os
