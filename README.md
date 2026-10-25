@@ -33,6 +33,24 @@ A simulated night at a small company, accelerated live:
 4. **Draft** — Drafter writes the replies, the incident summary, and the CRM clean-ups. **Nothing is sent.**
 5. **Brief** — Briefer produces `outputs/morning-brief.md` + an approval queue. A human approves/edits/rejects each item; approved actions execute against local mock systems and are written to the receipts log.
 
+### The morning brief (what the human sees at 9am)
+
+![NightShift morning brief: 23 items in, 8 clusters, 7 drafts queued, 0 sent, with the approval queue](docs/img/morning-brief-top.png)
+
+`outputs/morning-brief.html` is the screen; `outputs/morning-brief.md` is the same brief for a terminal or a phone. Full-page capture: [`docs/img/morning-brief.png`](docs/img/morning-brief.png).
+
+### The approval gate (one command, every action leaves a receipt)
+
+```
+$ python3 -m src.nightshift.main approve --ids Q1 Q2
+Approved + executed: Q1, Q2
+
+$ tail -3 outputs/receipts.log
+2026-10-25T11:10:29 · night run: 23 items, 8 clusters, 7 drafts queued, 0 sent
+2026-10-25T11:11:13 · APPROVED Q1 [incident] Incident update to 5 affected customers sources=I1,E5,T1,E6,T2,E7,I2
+2026-10-25T11:11:13 · APPROVED Q2 [billing] Reply to billing report sources=E4,T4,E10
+```
+
 ## The agent team (product)
 
 | Agent | Job | File |
