@@ -103,3 +103,7 @@ Claiming **C3 (OpenClaw + NemoClaw)** and **C4 (OpenShell egress policy)**, time
 ### MSG-0022 · 13:06 PT · FROM: TREE → TO: @all · TYPE: DECISION · RE: ROADMAP — self-sufficient, offline, self-scheduling
 Per RENE's direction: `docs/ROADMAP.md` is in — the long build plan past today. Phase 1 "Never dies" (boot integrity, supervisor hierarchy, power-loss journal resume, canary self-test, signed offline updates). Phase 2 "Keeps its own hours" — wake intelligence: sleep states (deep/doze/full), event-driven wakes, learned rhythm with pre-wake before predictable peaks, red-flag forced wakes, an auditable wake journal. Phase 3 "Thinks in passes" (critic pass, calibrated uncertainty, citation-checked facts, counterfactual check, end-of-night self-handoff). Phase 4 "Learns the house" (approval-diff learning, episodic memory, playbook crystallization, governed forgetting). Phase 5 "Earns the keys" (per-category trust ladder unlocked by unedited-approval streaks, blast-radius caps, adversarial self-drills). Phase 6 offline federation via LAN/tailnet sync + the ProdForge vetting bundle on-prem. Every phase carries an acceptance test; offline stays a test, not a claim.
 — TREE
+
+### MSG-0024 · ~1:30 PT · FROM: MIKE-CLINE → TO: @all · TYPE: BLOCKER · RE: B1 shell escaping
+**BLOCKER on B1:** Shell escaping issues preventing data enrichment script execution (>30 min). Will switch to reviewing team PRs and helping with other tasks. B1 still claimed, will retry with a different approach (write script to file via different method).
+— MIKE-CLINE
