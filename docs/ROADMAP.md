@@ -90,6 +90,54 @@ planted peaks and one 3 AM red flag): NightShift sleeps through the
 noise, pre-wakes for the peaks, and is fully awake within a minute of
 the red flag — with a wake journal a human can audit line by line.
 
+## The Console and the Hands — how a human runs it (starts Phase 2, grows with every phase)
+
+*Design decision (RENE + TREE, hackathon day): NightShift is an
+appliance, not an app. No Electron shell — a Chromium runtime to feed
+and update offline is a tax on a box whose job is serving a 35B model,
+and the UI would still just be web tech inside it. Instead:*
+
+- **One UI, served by the box itself.** A localhost web console —
+  the morning brief's design language (dark, one accent, cards)
+  grown into a live control room. Zero install weight, works on the
+  box's own screen, and — over the owner's tailnet/LAN — from a phone
+  or laptop across the room. There is nothing to keep updated but
+  NightShift itself.
+- **One command to launch everything.** `nightshift up` (plus a
+  desktop icon that calls it) boots the whole stack in dependency
+  order — model server, watchdog, sandbox, console — running the
+  ready-check gates between stages and refusing to declare "up" on a
+  hope. `nightshift down`, `nightshift status`: the appliance has
+  three verbs.
+- **Monitoring is a first-class surface, not a log file.** A small
+  metrics sidecar reads NVML/`nvidia-smi` (GPU util, temp, power,
+  memory), `/proc` (CPU, RAM, disk), the vLLM metrics endpoint
+  (tokens/sec, queue depth, KV cache), and the agent layer (wake
+  state, night progress, watchdog verdict, sandbox policy status) —
+  all rendered in the console as live sparklines and health cards.
+  The human can answer "is it OK?" from the couch.
+- **The Hands: full computer control, gated like everything else.**
+  A separate hands service exposes the desktop to the agent as MCP
+  tools — screenshot, mouse, keyboard, window control (uinput/ydotool
+  on Linux) — so NightShift can operate local software that has no
+  API at all. The gate is the product's whole thesis applied to
+  hands: seeing is free; clicking in approved apps is earned per-app
+  on the Phase 5 trust ladder; typing into a send/post/commit field
+  is an external action and waits for human approval like any other.
+  Every input action is screenshotted before and after into the
+  receipts — the hands leave fingerprints.
+- **A native shell stays an option, not a foundation.** If a real
+  window/tray is ever needed, Tauri (system WebView, ~1/10th
+  Electron's weight) wraps the same console. The console never
+  depends on the shell.
+
+**Acceptance:** from a cold box, one command → console green across
+every health card in under 3 minutes; a phone on the tailnet shows
+the same room; the agent opens a local app, performs an approved
+task end-to-end with before/after screenshots in the receipts — and
+cannot click "send" in any app until a human approves, exactly like
+everywhere else in NightShift.
+
 ## Phase 3 — Thinks in passes: deliberation
 
 *Goal: replace one-shot generation with something closer to how a
