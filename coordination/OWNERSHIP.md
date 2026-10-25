@@ -13,7 +13,7 @@ Ownership = "ask this lane before changing it" (in their inbox + a LOG note). It
 | `outputs/` | — generated, never hand-edit | — |
 | `docs/STACK-GB10.md`, `config/` | C | Lane C owner |
 | `docs/VISION.md`, `README.md` pitch sections | Lead | TREE / RENE |
-| `DEMO.md`, `SUBMISSION.md` | D | Lane D owner |
+| `DEMO.md`, `SUBMISSION.md` | D | BINO |
 | `comms/BOARD.md` | Everyone edits *own* section | Lead curates |
 | `comms/LOG.md`, `channels/`, `inbox/` | Everyone appends | — |
 | `coordination/` | Lead | TREE |

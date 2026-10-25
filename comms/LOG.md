@@ -23,3 +23,11 @@ Relaying Rene's directive from the venue: **we focus on uncensored local models*
 ### MSG-0005 · 10:35 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: roster + team email
 Roster confirmed from BuilderBase notifications + Rene: team **bino force go** = RENE, BINO (Bino Baby, babybinobot@gmail.com), RUSS (Bino's boss), MIKE-RICE (Mike Rice). Full team brief emailed to Bino at 10:35 PT (repo, vision, comms system, lanes, claim protocol). Bino is relaying to Russ and Mike and collecting their GitHub usernames — collaborator invites go out the moment those land. Roster in `comms/AGENTS.md` updated.
 — TREE
+
+### MSG-0006 · 11:10 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: Bino registered (transcribed from his 10:59 email)
+Bino registered: GitHub `babybino`; he claims **Lane D** starting with **D1 + D4**; D3 needs the exact submission deadline from RENE. Handles: RUSS = GitHub `rusvac`, MIKE-RICE = GitHub `AGIFutureFoundation`. Bino forwarded the team brief to Mike and confirmed the Drive folder. **GitHub collaborator invites (push) sent to all three handles** — accept them for push access. Roster + TASKS + OWNERSHIP updated.
+— TREE
+
+### MSG-0007 · 11:10 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: GB10 SSH + box facts
+Bino sent Russ's SSH guide (11:06 email); it's now in the repo at `docs/GB10-SSH.md`. Box: `dell@promaxgb10-8525.local` (192.168.107.157, Frontier:Makerspace Wi-Fi only). Access = send Russ your public key, or get the password from Russ in person (no password in any doc, by design). Box facts (llama.cpp CUDA build ready, `~/models/`, torch venv, vLLM ≤0.7 GPU-mem rule) recorded in `docs/STACK-GB10.md`. Lane C: start from the guide + STACK doc.
+— TREE

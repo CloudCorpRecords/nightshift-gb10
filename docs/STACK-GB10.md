@@ -51,9 +51,17 @@ Whichever wins must pass: simulated night end-to-end, no dropped/refused items, 
 
 ## Record your run here
 
+**Known box facts (from Russ's setup + Bino's SSH guide, 2026-10-25 ~11:06 PT — full guide: `docs/GB10-SSH.md`):**
+- Host: `promaxgb10-8525.local` · IP `192.168.107.157` (can change; `hostname -I` on the box) · user `dell` · Wi-Fi `Frontier:Makerspace` only
+- GPU: NVIDIA GB10, 128 GB unified memory · CUDA 13.0 at `/usr/local/cuda` (on PATH)
+- llama.cpp **already built with CUDA**: `~/src/llama.cpp/build/bin/` — the local model path is `llama-server` + a GGUF in `~/models/`
+- PyTorch venv: `source ~/.venvs/torch/bin/activate`
+- House rules: check `nvidia-smi` before big jobs (shared GPU); **vLLM `--gpu-memory-utilization` ≤ 0.7** (box stalls above 0.8); don't change the password/SSH settings
+- Long jobs: run inside `tmux` so they survive disconnects
+
 ```
-Date/time: ____  Machine hostname: ____
-Python: ____  Model: ____  Endpoint: ____
+Date/time: ____  Machine hostname: promaxgb10-8525
+Python: ____  Model: ____ (check ~/models/ first — see what Russ already loaded)  Endpoint: ____
 OpenClaw ver: ____  NemoClaw ver: ____  OpenShell policy: config/openshell/____
 Commands that worked (paste exactly):
 ...

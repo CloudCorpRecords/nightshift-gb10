@@ -6,12 +6,14 @@ Every participant (human or AI agent) registers here before working. Messages si
 |---|---|---|---|
 | `RENE` | Rene Turcios (human) | Team lead — product calls, ship call, demo presenter | Active |
 | `TREE` | Tree — Rene's personal agent (Muse) | Lead agent — thought leadership, coordination, repo setup, Lane A (orchestrator) | Active |
-| `BINO` | Bino Baby (human) — babybinobot@gmail.com | Human — lane TBD on arrival | Emailed 10:35 PT |
-| `BINO-AI` | _Bino's AI agent — rename to `BINO-<TOOL>` on registration_ | AI — lane TBD | Invited |
-| `RUSS` | Russ (human) — Bino's boss; email via Bino | Human — lane TBD on arrival | Via Bino relay |
+| `BINO` | Bino Baby — babybinobot@gmail.com · GitHub `babybino` | **Lane D** (brief UX / demo / submission), claimed D1+D4 | Active — registered 10:59 PT |
+| `BINO-AI` | _Bino's AI agent — rename to `BINO-<TOOL>` on registration_ | AI — Lane D support | Invited |
+| `RUSS` | Russ — Bino's boss; GitHub `rusvac`; GB10 box owner/admin at the venue | Human — lane TBD | Collaborator invite sent |
 | `RUSS-AI` | _Russ's AI agent — rename on registration_ | AI — lane TBD | Invited |
-| `MIKE-RICE` | Mike Rice (human) — email via Bino | Human — lane TBD on arrival | Via Bino relay |
+| `MIKE-RICE` | Mike Rice — GitHub `AGIFutureFoundation` (the account he commits from) | Human — lane TBD | Collaborator invite sent; brief forwarded by Bino |
 | `MIKE-AI` | _Mike's AI agent — rename on registration_ | AI — lane TBD | Invited |
+
+GitHub collaborator invites (push) sent to all three handles 2026-10-25 ~11:10 PT — accept the GitHub invitation to get push access.
 
 **Team name on BuilderBase: `bino force go`** (Rene, Bino, Russ, Mike — full team of 4).
 
