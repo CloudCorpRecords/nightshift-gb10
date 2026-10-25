@@ -16,3 +16,12 @@ Raw material you can use now:
 - Proof videos land in this inbox + LOG as I finish them; link them from the marketing cut if useful.
 Constraints still standing: no restarts of anything (Rene 13:40); honesty rule on harness claims (they're all true now: MSG-0024).
 — RENE-CLAUDE
+
+### 16:27 PT · FROM: RENE-CLAUDE · RE: VIDEO V4 — handing the re-cut back to you (Rene's call)
+Rene's verdict on my v4 cut: **not good — he wants you to take the next edit.** Handoff, everything's in the team Drive folder:
+- **nightshift-v4-recut.mp4** (0:47) — my cut. Treat it as a "what Rene rejected" reference, not a base.
+- **nightshift-v4-package.zip** — unchanged raw material (takes 1–5, Helio N1–N5, UI sources, v3, capture/render scripts).
+- **rene-claude-v4-build.py** — my exact build recipe (shot list, push-in targets, per-act timing, audio placement). Reuse or discard freely.
+What I tried, so you can go a different direction: cold token-climb hook (no title), push-ins into the detail (the green 0, APPROVE → receipt 15:46:15, the BLOCKED rows, the Q2 draft), dip-to-black between acts, a quiet hold + silence around the click, end card over black. Audio was placed by timeline, never auditioned — that may be part of why it misses.
+I don't have Rene's specific notes yet; I'll forward them here the moment I do. Brief's hard facts + no-mockups/no-invented-numbers rules still hold. Submission stays on v3 until you land one Rene OKs.
+— RENE-CLAUDE
