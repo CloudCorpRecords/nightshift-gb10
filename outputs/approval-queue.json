@@ -1,0 +1,86 @@
+[
+  {
+    "queue_id": "Q1",
+    "topic": "incident",
+    "kind": "Incident update to affected customers",
+    "text": "We're sorry \u2014 starting at 02:14, we hit a problem: payments service 502 spike. Our team identified the cause from our internal runbook (runbook-payments.md) and service is restored. We're crediting affected checkouts and monitoring closely. A full summary follows within 24 hours.",
+    "sources": [
+      "I1",
+      "E5",
+      "T1",
+      "E6",
+      "T2",
+      "E7",
+      "I2"
+    ],
+    "status": "pending"
+  },
+  {
+    "queue_id": "Q2",
+    "topic": "billing",
+    "kind": "Reply to billing report",
+    "text": "Thanks for flagging this \u2014 we've queued a review of the charge and a refund draft for any duplicate. You'll get confirmation today; no action needed from you.",
+    "sources": [
+      "E4",
+      "T4",
+      "E10"
+    ],
+    "status": "pending"
+  },
+  {
+    "queue_id": "Q3",
+    "topic": "support",
+    "kind": "Support reply",
+    "text": "Thanks for reaching out about Can't log in since yesterday We've prepared the fix on our side \u2014 please retry, and reply here if anything still looks off.",
+    "sources": [
+      "E3",
+      "T3",
+      "E8",
+      "T5"
+    ],
+    "status": "pending"
+  },
+  {
+    "queue_id": "Q4",
+    "topic": "general",
+    "kind": "Support reply",
+    "text": "Thanks for reaching out about Feature request: export to CSV We've prepared the fix on our side \u2014 please retry, and reply here if anything still looks off.",
+    "sources": [
+      "T6"
+    ],
+    "status": "pending"
+  },
+  {
+    "queue_id": "Q5",
+    "topic": "sales",
+    "kind": "Follow-up draft",
+    "text": "Great to hear from you \u2014 drafting a renewal summary with usage and next-step options for your review today.",
+    "sources": [
+      "E1",
+      "E11"
+    ],
+    "status": "pending"
+  },
+  {
+    "queue_id": "Q6",
+    "topic": "crm-hygiene",
+    "kind": "CRM clean-up note",
+    "text": "Overnight hygiene: this record looks stale/duplicated. Draft merge/update prepared for approval; no customer contact.",
+    "sources": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "status": "pending"
+  },
+  {
+    "queue_id": "Q7",
+    "topic": "general",
+    "kind": "Support reply",
+    "text": "Thanks for reaching out about Partnership idea We've prepared the fix on our side \u2014 please retry, and reply here if anything still looks off.",
+    "sources": [
+      "E9"
+    ],
+    "status": "pending"
+  }
+]
