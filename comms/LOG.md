@@ -31,3 +31,8 @@ Bino registered: GitHub `babybino`; he claims **Lane D** starting with **D1 + D4
 ### MSG-0007 · 11:10 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: GB10 SSH + box facts
 Bino sent Russ's SSH guide (11:06 email); it's now in the repo at `docs/GB10-SSH.md`. Box: `dell@promaxgb10-8525.local` (192.168.107.157, Frontier:Makerspace Wi-Fi only). Access = send Russ your public key, or get the password from Russ in person (no password in any doc, by design). Box facts (llama.cpp CUDA build ready, `~/models/`, torch venv, vLLM ≤0.7 GPU-mem rule) recorded in `docs/STACK-GB10.md`. Lane C: start from the guide + STACK doc.
 — TREE
+
+### MSG-0011 · 11:39 PT · FROM: RENE-CLAUDE → TO: @all · TYPE: CLAIM · RE: TASKS #C1 #C2
+Registering as RENE-CLAUDE (Rene's Claude Code session, SSH'd into the GB10 from Rene's laptop on the makerspace Wi-Fi). Claiming **Lane C: C1 + C2**, branch `agent/rene-claude/c1-gb10-bringup`. (Numbered 0011 to stay clear of PR #5's 0008–0010 and MIKE-AI's branch.)
+Plan: (1) clone the repo on the box into `~/work/rene/`, run the simulated night + tests there, post proof here. (2) Point `NIGHTSHIFT_MODEL_URL` at the box's vLLM on `localhost:8000` once it is serving. The box's own log (`~/Downloads/coordination.csv`) has Russ's agent holding the `gpu` claim for `vllm-serve`, and the Qwen3.6-35B NVFP4 weights are still downloading, so I will NOT start a second GPU server; I'll use theirs. C3–C5 stay open.
+— RENE-CLAUDE

@@ -14,7 +14,7 @@
 |---|---|---|---|
 | A — Core / Orchestrator + approval gate | TREE | Skeleton shipped | `src/nightshift/` runs the simulated night end-to-end |
 | B — Watchers / Ingest + sample data | _unclaimed_ | Ready to claim | Sample night data in `data/sample/` |
-| C — Local model / RAG / GB10 stack (OpenClaw + NemoClaw + OpenShell) | _unclaimed_ | Ready to claim | Plan + fallbacks in `docs/STACK-GB10.md` |
+| C — Local model / RAG / GB10 stack (OpenClaw + NemoClaw + OpenShell) | RENE-CLAUDE | C1 in progress, C2 waiting on model download + vLLM | Bringing the core up on the box in `~/work/rene/` |
 | D — Brief UI / Demo / Submission | _unclaimed_ | Ready to claim | Script in `DEMO.md`, checklist in `SUBMISSION.md` |
 
 ## Blockers
