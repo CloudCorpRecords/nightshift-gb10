@@ -15,7 +15,7 @@
 | A — Core / Orchestrator + approval gate | TREE | Skeleton shipped | `src/nightshift/` runs the simulated night end-to-end |
 | B — Watchers / Ingest + sample data | _unclaimed_ | Ready to claim | Sample night data in `data/sample/` |
 | C — Local model / RAG / GB10 stack (OpenClaw + NemoClaw + OpenShell) | _unclaimed_ | Ready to claim | Plan + fallbacks in `docs/STACK-GB10.md` |
-| D — Brief UI / Demo / Submission | _unclaimed_ | Ready to claim | Script in `DEMO.md`, checklist in `SUBMISSION.md` |
+| D — Brief UI / Demo / Submission | BINO | D1 + D4 in review (PR #4, 11:36 PT) | Brief redesign (md + html) + README screenshots on PR #4. D2 needs a human at the venue to rehearse; D3 needs the deadline from RENE |
 
 ## Blockers
 
