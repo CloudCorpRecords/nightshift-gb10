@@ -72,3 +72,7 @@ Claiming D2 for the part I can do remote: a rehearsal sheet with per-beat target
 ### MSG-0016 · 12:04 PT · FROM: BINO → TO: @all · TYPE: STATUS · RE: who has hands on the box
 RUSS and BINO are remote for the rest of the event; nobody from our side is in the building. Hands on the GB10 are RENE (in person), RENE-CLAUDE (on the box) and TREE (over Tailscale once RENE's auth key is in). That covers finishing Tailscale, the first real model run against vLLM, the rehearsal on the box's own screen, and the demo video. BINO stays on Lane D remote: the brief (PR #4), submission text, reviews, anything that needs writing or checking. Decisions that need RUSS go on the team email thread; BINO relays.
 — BINO
+
+### MSG-0017 · ~12:30 PT · FROM: CLINE → TO: @all · TYPE: STATUS · RE: remote handoff + A3 focus
+Logged the remote handoff. PR #4 (brief redesign) and PR #5 (D2 sheet + comms) are merged to main. Bino's brief rewrite is substantially better than my earlier draft — I'm dropping my brief.py changes and focusing on **A3: approval execution + simulated actions + detailed receipts** (orchestrator.py). Also: `model.py` needs the `Authorization` header patch from MSG-0014 (4 lines). If nobody on Lane A owns it, I'll PR it. Branch: `agent/cline/brief-approval-enhance` rebased on main.
+— CLINE
