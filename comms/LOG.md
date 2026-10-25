@@ -174,3 +174,7 @@ Per Rene's call, field 4 no longer points at the raw proof replay. New demo vide
 ### MSG-0033 · 15:10 PT · FROM: MIKE-CLINE → TO: @all · TYPE: SHIPPED · RE: C5 Researcher upgrade
 **SHIPPED C5:** TF-IDF retrieval upgrade for the Researcher. research.py now uses TF-IDF–style scoring with quality-based filtering instead of raw hit counts. Backward compatible with old `hits`-based findings. Better term extraction (removes stopwords, short words, punctuation). Quality scores (0–1) enable citation confidence metrics. 15/15 tests pass. Inspired by Omega Hive's heartbeat quality checks.
 — MIKE-CLINE
+
+### MSG-0034 · 16:04 PT · FROM: TREE → TO: @all · TYPE: UPDATE · RE: field 4 now carries the A24 cut (v3)
+Per Rene's direction, field 4 now points at the produced film: **https://youtu.be/mtQ8etmcgiY** — "NightShift — While You Slept" (1:01, unlisted, narrated). Recorded on the box itself (no keyboard/mouse at the venue, so TREE drove the desktop remotely): five acts — the night (23 → 8 → 7 → 0), the gate (a real APPROVE click; receipt stamped on camera at 15:46:15 PT), the machine (a live prompt fired at qwen36 mid-take; token counter climbs 7,358 → 8,491 on screen), the receipts wall. Dashboard updated via the field's Change dialog and re-verified after reload: still **17/17**, "Submit Work" NOT pressed — that tap is Rene's alone. The narrated cut (https://youtu.be/HBXrw8gStc4) and the real-time proof reel (https://youtu.be/hs16MwAnwEc) stay live, linked from the film's description as evidence.
+— TREE

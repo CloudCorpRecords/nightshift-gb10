@@ -16,9 +16,9 @@ NightShift is the always-on local ops agent for support, ops, and engineering te
 ## 3. Repository URL ✅ ready
 https://github.com/CloudCorpRecords/nightshift-gb10 (public, MIT — judges can open it)
 
-## 4. Demo video URL ⏳ team films at the venue
-*Required: under 2 minutes, the agent working end to end on the GB10. No screen share during live pitches — the video + deck carry the story.*
-Script: see `DEMO.md` → "Demo video (under 2:00)". Paste the final link here: ______
+## 4. Demo video URL ✅ FINAL (v3 film, swapped in 16:01 PT)
+**https://youtu.be/mtQ8etmcgiY** — "NightShift — While You Slept" (1:01, unlisted, narrated). Recorded on the GB10 itself: five acts — the night (23 → 8 → 7 → 0), the gate (a real APPROVE click, receipt stamped on camera), the machine (a live prompt fired at qwen36 mid-take; the token counter climbs on screen), the receipts wall.
+Evidence reels, linked from the film's description: plain-language narrated cut https://youtu.be/HBXrw8gStc4 · real-time proofs https://youtu.be/hs16MwAnwEc
 
 ## 5. What you built, and what runs locally ✅ ready
 NightShift is a five-agent system that runs a company's overnight operations on one Dell Pro Max with GB10. A Watcher ingests the night's inbox, support tickets, CRM exports, and incident alerts into one item stream (a live drop-folder mode rebuilds the night in real time as files arrive). A Triager clusters duplicates and related items, scores urgency deterministically, and raises red flags for churn, legal, breach, and refund language so business-risk items can never sit quietly in a queue. A Researcher root-causes incidents against private local runbooks. A Drafter writes every reply, customer update, and internal note. A Briefer renders the morning brief and a machine-readable approval queue. An orchestrator with a hard approval gate executes only what a human approves — the agents send nothing, ever — and every action writes an auditable receipt.
@@ -56,6 +56,6 @@ Models live in ~/models/ on the box. The Qwen3.6-35B-A3B-heretic NVFP4 weights (
 - **17. What influenced your rating?** — Two things: the egress denial is enforced by the sandbox, not by our code's good behavior — we verified from inside that nothing but the model route is reachable, and the model API key is injected by the gateway and never present in the sandbox. The point off is for the silent scope-approval hang: a security control that blocks quietly can also fail quietly, and we'd want its pending state to be loud.
 
 ## Dashboard state (verified 12:54 PT, Rene's screenshots)
-All 17 items enumerated: 1–3 ✅, 4 video ⏳ (venue), 5 ✅ (corrected to the vLLM truth 12:54 — no llama.cpp serving, no harness claims), 6 ✅, 7 ✅, 8 ✅ (corrected), 9 ✅, 10 ✅, 11 ✅, 12 ✅, 13–17 ⏳ (C3/C4 outcome, fill last). Timer on dashboard: "0d 7h left" → hard deadline ≈ 8:00 PM PT. Team plan unchanged: everything filled by 5:00 PM PT.
+All 17 items enumerated: 1–3 ✅, 4 ✅ (v3 film, swapped 16:01 PT), 5 ✅ (corrected to the vLLM truth 12:54 — no llama.cpp serving, no harness claims), 6 ✅, 7 ✅, 8 ✅ (corrected), 9 ✅, 10 ✅, 11 ✅, 12 ✅, 13–17 ⏳ (C3/C4 outcome, fill last). Timer on dashboard: "0d 7h left" → hard deadline ≈ 8:00 PM PT. Team plan unchanged: everything filled by 5:00 PM PT.
 
 **One-liner (short form, for anywhere a single sentence is needed):** The always-on local ops agent that works the night shift on your Dell Pro Max with GB10 — triaging inbox, tickets, and incidents overnight, drafting everything, sending nothing, and handing you a morning brief with an approval queue. No cloud. No leaks. Receipts for everything.
