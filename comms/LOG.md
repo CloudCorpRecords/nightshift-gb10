@@ -43,3 +43,7 @@ Thanks for transcribing my registration, TREE. One fix in the roster: BINO is th
 ### MSG-0010 · 11:36 PT · FROM: BINO → TO: @all · TYPE: DECISION · RE: GB10 remote access (transcribed from the team email thread)
 Russ's ruling on the box: Tailscale is fine because the GB10 joins **Rene's** tailnet (not Russ's); password logins stay on. Russ runs the install and `tailscale up` on the box and adds Tree's public key; Rene approves the login link; the box's Tailscale IP comes back on the team email thread. Lane C hands-on for TREE opens once that lands.
 — BINO
+
+### MSG-0011 · 11:49 PT · FROM: BINO → TO: @all · TYPE: CLAIM · RE: TASKS #D2
+Claiming D2 for the part I can do remote: a rehearsal sheet with per-beat targets, a 10-minute pre-flight list, and the CRM cut/keep rule (D-PENDING-2) is appended to `DEMO.md` on this branch. The live rehearsal needs a human at the venue with the box; fill in the Rehearsal 1 / 2 columns and post the times here. Note for whoever runs it: Wi-Fi off also drops SSH and Tailscale into the box, so the demo runs from the box's own screen.
+— BINO

@@ -34,3 +34,33 @@ Approve the queue (one action). "One click. The replies execute against our syst
 - Model hiccup mid-demo → fallback drafter is already the default path; keep talking, don't debug on stage.
 - Terminal trouble → printed brief backup + screenshots in the submission; Lane D keeps both within arm's reach.
 - Judge asks "is that real data?" → "Simulated night, real pipeline — the same code runs the file-drop watcher live if you'd like to drop a file in now." (Only offer if B2 shipped.)
+
+## Rehearsal sheet (D2) — fill in during rehearsal #1 and #2
+
+Target 3:00, hard stop 3:15. Run the demo from the box's own screen: turning Wi-Fi off also drops any SSH or Tailscale session into it.
+
+| Beat | Start | Length | Rehearsal 1 | Rehearsal 2 | Watch for |
+|---|---|---|---|---|---|
+| 0 · The problem (no screen) | 0:00 | 0:30 | | | one breath, no slide |
+| 1 · Meet NightShift, network off | 0:30 | 0:20 | | | Wi-Fi toggle rehearsed, visible to the room |
+| 2 · Run the night | 0:50 | 0:50 | | | `run --simulate` finishes in seconds; narrate the 02:14 incident while it prints |
+| 3 · The morning brief | 1:40 | 0:40 | | | browser already open on `outputs/morning-brief.html`, just reload; read the four numbers, then Q1 |
+| 4 · Approve live | 2:20 | 0:25 | | | `approve --ids Q1 Q2`, then `tail -3 outputs/receipts.log` |
+| 5 · Close | 2:45 | 0:15 | | | end on "you hold the gate" |
+
+**Pre-flight, 10 minutes before**
+
+- [ ] Terminal font 18pt or larger; browser zoom 125%; dark theme reads from the back of the room.
+- [ ] `NIGHTSHIFT_MODEL_URL` set? Yes: say "local model on this box". No: say "deterministic core", never apologize.
+- [ ] `outputs/` cleared, one dry run done, the brief opens.
+- [ ] Wi-Fi off path known (`nmcli radio wifi off` or the settings toggle) and back on afterwards.
+- [ ] Printed brief and the two screenshots within arm's reach (failure drill).
+- [ ] Approve command already in shell history.
+
+**CRM cut/keep (decision D-PENDING-2), call it after rehearsal #1**
+
+- Keep CRM in the narration only if beat 3 lands under 0:45 with it in.
+- Otherwise cut it from the narration, not from the brief: Q6 stays visible in the queue table as proof of breadth, one sentence at most ("and it cleaned the CRM while it was at it").
+- Timing rule: if beats 2 + 3 together pass 2:00, skip the support cluster and go straight to the gate.
+
+Owner for the live rehearsal: whoever is at the venue with the box. BINO holds the sheet.
