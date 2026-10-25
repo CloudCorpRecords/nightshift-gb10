@@ -33,4 +33,16 @@ Approve the queue (one action). "One click. The replies execute against our syst
 
 - Model hiccup mid-demo → fallback drafter is already the default path; keep talking, don't debug on stage.
 - Terminal trouble → printed brief backup + screenshots in the submission; Lane D keeps both within arm's reach.
-- Judge asks "is that real data?" → "Simulated night, real pipeline — the same code runs the file-drop watcher live if you'd like to drop a file in now." (Only offer if B2 shipped.)
+- Judge asks "is that real data?" → "Simulated night, real pipeline — the same code runs the file-drop watcher live if you'd like to drop a file in now." (B2 shipped 11:35 PT — offer it.)
+
+## Demo video (under 2:00) — REQUIRED by BuilderBase, film on the GB10
+
+*One continuous screen recording on the box, voiceover live or dubbed. The requirement: "the agent working end to end on the GB10." Target 1:45.*
+
+- **0:00–0:15 — The claim.** Terminal on the GB10 (`nvidia-smi` visible). "This is a Dell Pro Max with GB10. Everything you're about to see runs on this box — watch: Wi-Fi off." Toggle the network off on camera.
+- **0:15–0:45 — The night runs.** `python3 -m src.nightshift.main run --simulate` → "23 items → 8 clusters → 7 drafts queued. Nothing sent." Open `outputs/morning-brief.md`: incident cluster first, runbook citation, red-flag section calling out the charged-twice billing item.
+- **0:45–1:15 — Always-on, live.** Start `python3 -m src.nightshift.main watch --dir data/live`. Drag one nasty item file in (the profane cancel-threat `.item.json` from `data/live-seeds/` if present, else any sample item): the night rebuilds itself on camera — new cluster, red flag raised, draft written. "A censored model would soften that message. Ours reads it as-is — and still sends nothing."
+- **1:15–1:40 — The gate.** `python3 -m src.nightshift.main approve --ids Q1` → receipt lines print. Show `outputs/receipts.log`. "Humans hold the gate. Every action has a receipt."
+- **1:40–1:55 — Close.** "NightShift. The night shift, staffed — privately, on one GB10." Team logo frame.
+
+Film in one take if possible; retakes allowed, dignity optional. Upload, set public/unlisted, paste the link into SUBMISSION.md field 4 and the BuilderBase dashboard.

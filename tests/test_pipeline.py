@@ -41,6 +41,32 @@ class PipelineTest(unittest.TestCase):
         model = LocalModel(url="http://127.0.0.1:9")
         self.assertIsNone(model.complete("anything"))
 
+    def test_red_flags_surface_in_brief(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            run_night(DATA, DATA / "docs", tmp, model=LocalModel(url=""))
+            brief = Path(tmp, "morning-brief.md").read_text()
+            # sample night has a "charged twice" billing item -> red flag
+            self.assertIn("Red flags", brief)
+            self.assertIn("charged twice", brief)
+
+    def test_live_watch_rebuilds_on_drop(self):
+        from src.nightshift.livewatch import rebuild
+        with tempfile.TemporaryDirectory() as tmp:
+            watch_dir = Path(tmp, "live")
+            watch_dir.mkdir()
+            (watch_dir / "drop1.item.json").write_text(json.dumps({
+                "id": "L1", "source": "inbox", "time": "23:15",
+                "author": "ceo@bigco.example", "subject": "We will cancel",
+                "body": "Unless this is fixed tonight we will cancel the "
+                        "contract and switch to a competitor.",
+                "topic": "sales"}))
+            out = Path(tmp, "out")
+            result = rebuild(watch_dir, Path(tmp, "stage"), DATA / "docs", out)
+            self.assertEqual(result["items"], 1)
+            brief = Path(out, "morning-brief.md").read_text()
+            self.assertIn("cancel", brief)
+            self.assertIn("Red flags", brief)
+
 
 if __name__ == "__main__":
     unittest.main()

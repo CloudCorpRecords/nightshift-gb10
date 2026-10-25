@@ -68,6 +68,7 @@ def build(clusters_with_drafts):
             "n": n, "qid": qid, "topic": c["topic"], "label": _label(c["topic"]),
             "urgency": c["urgency"], "items": c["items"], "findings": findings,
             "draft": draft, "headline": c["items"][0]["subject"],
+            "red_flags": list(c.get("red_flags") or []),
         })
         if qid:
             queue.append({"queue_id": qid, "topic": c["topic"], "kind": draft["kind"],
@@ -83,6 +84,7 @@ def build(clusters_with_drafts):
         "clusters": len(sections), "queued": len(queue), "sent": 0,
         "sections": sections, "queue": queue,
         "top": [s for s in sections if s["qid"]][:3],
+        "flagged": [s for s in sections if s["red_flags"]],
     }
 
 
@@ -101,6 +103,15 @@ def render_markdown(b):
           "> **Nothing was sent overnight.** Every item below is a draft waiting for "
           "your approval. Approving executes against local systems and writes a receipt.",
           ""]
+    if b["flagged"]:
+        L += ["## 🚩 Red flags, read these first", "",
+              "_Churn, legal, breach or money-back language. Rank order is unchanged; "
+              "this is visibility, not reordering._", ""]
+        for s in b["flagged"]:
+            i = s["items"][0]
+            L.append(f"- **{s['qid'] or s['label']} · {s['label']}** ({', '.join(s['red_flags'])}) — "
+                     f"{i['author']}: {i['subject']}")
+        L.append("")
     L += ["## At a glance", "",
           "| | |", "|---|---|",
           f"| Items ingested | {b['items']} (" +
@@ -119,7 +130,8 @@ def render_markdown(b):
           "| Queue | Urgency | Topic | Draft | Sources |", "|---|---|---|---|---|"]
     for s in b["sections"]:
         if s["qid"]:
-            L.append(f"| {s['qid']} | `{_bar(s['urgency'])}` {s['urgency']} | {s['label']} | "
+            flag = " 🚩" if s["red_flags"] else ""
+            L.append(f"| {s['qid']} | `{_bar(s['urgency'])}` {s['urgency']} | {s['label']}{flag} | "
                      f"{s['draft']['kind']} | {len(s['items'])} |")
     L += ["", f"Approve everything: `{APPROVE_ALL}`  ",
           f"Approve a selection: `{APPROVE_IDS} Q1 Q2`", ""]
@@ -128,8 +140,9 @@ def render_markdown(b):
         if not s["qid"]:
             noise.append(s)
             continue
+        flag = f" · 🚩 {', '.join(s['red_flags'])}" if s["red_flags"] else ""
         L += [f"## {s['n']} · {s['label']} · {s['qid']} · urgency {s['urgency']}/100 · "
-              f"{_n(len(s['items']), 'item')}", "", "**What happened**", ""]
+              f"{_n(len(s['items']), 'item')}{flag}", "", "**What happened**", ""]
         for i in s["items"]:
             L.append(f"- {i['time']} · {i['source']} · {i['author']}: {i['subject']}")
         L.append("")
@@ -165,6 +178,11 @@ header .sub{color:var(--muted);font-size:14px}
 .gate{margin:22px 0 0;padding:14px 18px;border:1px solid var(--accent);border-radius:10px;
 background:rgba(245,185,66,.08)}
 .gate b{color:var(--accent)}
+.flags{margin:14px 0 0;padding:14px 18px;border:1px solid var(--hi);border-radius:10px;
+background:rgba(255,93,93,.08)}
+.flags b{color:var(--hi)}.flags ul{margin:8px 0 0;padding-left:20px}.flags li{margin:4px 0}
+.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+color:var(--hi);border:1px solid var(--hi);border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:middle}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:28px 0}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
 .card .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
@@ -221,7 +239,16 @@ def render_html(b):
          f"{e(b['generated'])} on <code>{e(b['host'])}</code> · {e(b['model'])}</div>",
          "<div class=\"gate\"><b>Nothing was sent overnight.</b> Every item below is a draft "
          "waiting for your approval. Approving executes against local systems and writes "
-         "a receipt.</div></header>"]
+         "a receipt.</div>"]
+    if b["flagged"]:
+        H.append("<div class=\"flags\"><b>🚩 Red flags, read these first.</b> Churn, legal, breach or "
+                 "money-back language. Rank order is unchanged.<ul>")
+        for s in b["flagged"]:
+            i = s["items"][0]
+            H.append(f"<li><span class=\"q\">{e(s['qid'] or s['label'])}</span> · <b>{e(s['label'])}</b> "
+                     f"({e(', '.join(s['red_flags']))}) — {e(i['author'])}: {e(i['subject'])}</li>")
+        H.append("</ul></div>")
+    H.append("</header>")
     src = " · ".join(f"{b['counts'][s]} {s}" for s in SOURCE_ORDER if b['counts'][s])
     H.append("<div class=\"cards\">"
              f"<div class=\"card\"><div class=\"k\">Items ingested</div><div class=\"v\">{b['items']}</div>"
@@ -246,7 +273,8 @@ def render_html(b):
         if s["qid"]:
             H.append(f"<tr><td class=\"q\">{s['qid']}</td><td><span class=\"bar\"><i style=\"width:"
                      f"{s['urgency']}%;background:{_color(s['urgency'])}\"></i></span>{s['urgency']}</td>"
-                     f"<td>{e(s['label'])}</td><td>{e(s['draft']['kind'])}</td><td>{len(s['items'])}</td></tr>")
+                     f"<td>{e(s['label'])}{' 🚩' if s['red_flags'] else ''}</td><td>{e(s['draft']['kind'])}</td>"
+                     f"<td>{len(s['items'])}</td></tr>")
     H.append("</tbody></table>")
     H.append(f"<pre>{e(APPROVE_ALL)}\n{e(APPROVE_IDS)} Q1 Q2</pre>")
     noise = []
@@ -255,7 +283,9 @@ def render_html(b):
             noise.append(s)
             continue
         H.append(f"<section class=\"cl {_level(s['urgency'])}\" id=\"{s['qid']}\">"
-                 f"<h3><span class=\"q\">{s['qid']}</span> · {e(s['label'])} · {e(s['headline'])}</h3>"
+                 f"<h3><span class=\"q\">{s['qid']}</span> · {e(s['label'])} · {e(s['headline'])}"
+                 + (f"<span class=\"badge\">🚩 {e(', '.join(s['red_flags']))}</span>" if s["red_flags"] else "")
+                 + "</h3>"
                  f"<div class=\"meta\">urgency {s['urgency']}/100 · {_n(len(s['items']), 'item')} · "
                  f"{e(_window(s['items']))}</div>")
         H.append("<div class=\"lbl\">What happened</div><ul class=\"tl\">")
