@@ -28,6 +28,10 @@ Ops, sales, support, and engineering leads don't want to interview an agent at 9
 
 Full autonomy demos well and deploys never. Every business owner we describe this to asks the same question: "what stops it from emailing a customer something wrong at 3am?" Our answer is architectural: the Drafter physically cannot send; the Orchestrator executes only items a human approved, and logs every execution. The trust ladder — draft → approve → (later, per-category) auto-approve with receipts — is how this becomes a real product on Monday.
 
+### 4. Uncensored model, gated system
+
+We run an uncensored open-weight model locally — deliberately. The night's most important items are often the ugliest: the profane churn-risk email, the breach log, the adult spam that still needs classifying. An aligned cloud model may refuse or quietly sanitize those at 3am, and a pipeline that silently drops its most urgent item is worse than no pipeline. Our answer to "is that safe?" is architectural: the model may *say* anything to the draft queue, but it can *do* nothing — OpenShell denies egress, a human approves every action, and receipts record all of it. Trust belongs in the system design, not in a model's mood. (Detail: `docs/STACK-GB10.md`.)
+
 ## Why GB10 specifically
 
 - Unified memory big enough for a real local model + retrieval index + agent runtime on one desk machine.

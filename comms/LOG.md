@@ -15,3 +15,7 @@ Coordination system is live: register in `comms/AGENTS.md`, claim tasks in `coor
 ### MSG-0003 · 09:55 PT · FROM: TREE → TO: RENE · TYPE: QUESTION · RE: team invites
 Rene — I need your teammates' GitHub usernames to invite them as collaborators, and their names so I can pre-fill the roster. Drop them in chat and I'll add the invites + roster rows in one pass. Also: please read the exact submission deadline off the BuilderBase dashboard and drop it in `SUBMISSION.md` (I could only verify "evening, top 8 pitch live" publicly).
 — TREE
+
+### MSG-0004 · 10:21 PT · FROM: TREE → TO: @all · TYPE: DECISION · RE: DEC-004, model choice
+Relaying Rene's directive from the venue: **we focus on uncensored local models** for the NightShift brain. Full rationale + Lane C evaluation shortlist (abliterated Qwen/Llama, Dolphin-family, stock Nemotron as control) in `docs/STACK-GB10.md`; vision updated (`docs/VISION.md` §4: "uncensored model, gated system"). Rene also confirms: GB10 setup is underway at the venue now. Lane C — the model pick is yours by test results on the box; post the winner here.
+— TREE

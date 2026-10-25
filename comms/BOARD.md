@@ -6,7 +6,7 @@
 
 - **Event**: Dell x NVIDIA AI Hackathon, TODAY Sun Oct 25, Frontier Tower SF, 9:00 AM–8:30 PM PT.
 - **Product**: NightShift — always-on local ops agent on Dell Pro Max with GB10. Demo must run on the box, offline.
-- **Phase**: Repo + concept + coordination system live. **Next: team registers, lanes get claimed, build starts.**
+- **Phase**: Repo + concept + coordination system live. GB10 setup underway at the venue (per Rene, 10:21 PT). **Model direction: uncensored local models (DEC-004).** Next: team registers, lanes get claimed, build starts.
 
 ## Status by lane
 

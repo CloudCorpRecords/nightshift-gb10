@@ -10,8 +10,23 @@
 | Agent runtime | **OpenClaw** — always-on loop, channels, scheduling | ☐ |
 | Agent framework | **NVIDIA NemoClaw** — agent team implementation | ☐ |
 | Sandbox / guardrails | **OpenShell** — policy-bound execution, egress deny | ☐ |
-| Model | Local open-weight (Nemotron-family first choice) via local OpenAI-compatible server | ☐ |
+| Model | **Local open-weight, uncensored/abliterated variant preferred** (see below) via local OpenAI-compatible server | ☐ |
 | Product core | This repo, Python 3 stdlib skeleton | ✅ runs |
+
+## Model choice — uncensored, local (team direction, Rene, Oct 25 ~10:21 PT)
+
+We run an **uncensored (abliterated / refusal-removed) open-weight model, locally**, as the primary drafting/research brain. This is an engineering decision, not a stunt:
+
+- **The night shift reads real business data.** Furious customers swear. Security logs describe attacks. Spam contains adult content. A heavily-aligned chat model can refuse, sanitize, or silently mangle exactly the items the Triager most needs summarized faithfully — at 3am, with nobody awake to notice the pipeline quietly dropped the most urgent item of the night.
+- **Local means no third-party "safety review" of private data.** The inbox never transits a cloud filter because it never leaves the box at all.
+- **Our guardrails are architectural, not model mood.** Safety in NightShift comes from the system: OpenShell sandbox (egress denied), the human approval gate (the model cannot send anything), and receipts for every action. We don't ask the model to be the police; we build a building it can't leave. That's the story for judges: *uncensored model, censored blast radius.*
+
+**Evaluation shortlist (Lane C, decide by results on the box, record the pick here):**
+1. An abliterated Qwen or Llama build (refusal-removed variants) sized for the GB10's unified memory with room for the doc index.
+2. A Dolphin-family uncensored fine-tune as the alternate.
+3. Stock Nemotron-family model as the control — if an uncensored build underperforms on draft quality, we ship the control and say so honestly.
+
+Whichever wins must pass: simulated night end-to-end, no dropped/refused items, fallback test green. Bring candidate weights on a drive — venue Wi-Fi is not a model-delivery plan.
 
 ## Bring-up order (do it in this order — each step de-risks the next)
 

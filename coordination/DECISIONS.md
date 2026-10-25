@@ -10,6 +10,10 @@
 **Decision:** All team coordination (humans + their AI agents) happens in `comms/` Markdown files with signed, numbered messages, a claim board, and lane ownership.
 **By:** RENE (requirement) + TREE (design). **Why:** Every agent tool can read/write Markdown; git provides history/authorship; the coordination itself becomes demo evidence of a multi-agent team working well.
 
+## DEC-004 · 2026-10-25 10:21 PT · Uncensored local models are the primary brain
+**Decision:** NightShift's primary local model is an uncensored/abliterated open-weight model run on the GB10 (Lane C evaluates the shortlist in `docs/STACK-GB10.md` against a stock-model control). Safety is enforced architecturally — OpenShell egress-deny, human approval gate, receipts — not by model refusals.
+**By:** RENE (directive, relayed by TREE). **Why:** an overnight ops agent must faithfully process real, messy business data (angry customers, security incidents, adult spam) without a filter silently dropping or mangling the most urgent items; local-only means no third-party review of private data either.
+
 ## DEC-003 · 2026-10-25 09:55 PT · Deterministic fallback is a product rule
 **Decision:** Every model-dependent feature must work (degraded, honestly) with no model loaded. No feature may require network access.
 **By:** TREE. **Why:** Venue Wi-Fi + one-day model loads are the top demo-killer risks. The demo must never die.

@@ -40,7 +40,7 @@ A simulated night at a small company, accelerated live:
 | Briefer | Morning brief + approval queue + receipts | `src/nightshift/brief.py` |
 | Orchestrator | Runs the night loop, approval gate | `src/nightshift/orchestrator.py` |
 
-Model layer is swappable (`src/nightshift/model.py`): local model on the GB10 first (NVIDIA Nemotron / Llama / Qwen via a local OpenAI-compatible endpoint), deterministic rules fallback so the demo **never dies** if a model load fails.
+Model layer is swappable (`src/nightshift/model.py`): a local **uncensored open-weight model** on the GB10 first (abliterated Qwen/Llama or Dolphin-family via a local OpenAI-compatible endpoint — see `docs/STACK-GB10.md` for why: the night shift must faithfully process real, messy business data without a filter silently dropping the most urgent item; safety lives in the gate + sandbox, not in model refusals), deterministic rules fallback so the demo **never dies** if a model load fails.
 
 ## Required stack — how we use it
 
