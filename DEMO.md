@@ -20,8 +20,8 @@
 `python3 -m src.nightshift.main run --simulate`
 Narrate the timeline: "23 items land overnight — inbox, tickets, CRM… at 2:14am the payments service starts throwing 502s… watch the Triager link the incident alerts to the two tickets and three customer emails it caused — one cluster of seven, not seven separate fires."
 
-**1:40 — The morning brief (open outputs/morning-brief.md)**
-"9am. This is what the human gets. What happened, what matters — the incident is #1, root-caused against *our own runbook* by the Researcher, locally. Every draft is here: the customer reply, the incident summary, the CRM clean-ups. And notice—" *(point at the gate)* "—**nothing has been sent.** NightShift can't send. It can only draft."
+**1:40 — The morning brief (open `outputs/morning-brief.html` in the browser; `outputs/morning-brief.md` is the same brief for the terminal)**
+"9am. This is what the human gets. Four numbers at the top: 23 in, 8 clusters, 7 drafts, 0 sent. What happened, what matters — the incident is #1, root-caused against *our own runbook* by the Researcher, locally. Every draft is here: the customer reply, the incident summary, the CRM clean-ups. And notice—" *(point at the gate)* "—**nothing has been sent.** NightShift can't send. It can only draft."
 
 **2:20 — The approval gate (approve live)**
 Approve the queue (one action). "One click. The replies execute against our systems, and every single action writes a receipt — source, reason, timestamp. If it happened overnight, you can audit it over coffee."
