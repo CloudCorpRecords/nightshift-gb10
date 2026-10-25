@@ -70,7 +70,22 @@ $ python3 -m unittest discover tests
 Ran 6 tests ... OK
 ```
 
-### C2 — local model (in progress)
+### C2 — local model (RENE-CLAUDE, 12:43 PT) ✅
+
+```
+vLLM: ghcr.io/aeon-7/aeon-vllm-ultimate:latest (v0.29.0+aeon.sm121a.dspark), served name qwen36, :8000, keyed
+Start: ~/work/rene/serve-qwen36.sh  (auto-serve flags minus --speculative-config)
+$ bash scripts/ready-check.sh      -> GO (12:41 PT)
+$ export NIGHTSHIFT_MODEL_URL=http://localhost:8000/v1 NIGHTSHIFT_MODEL_KEY=$(cat ~/Downloads/vllm-api-key.txt)
+$ python3 -m src.nightshift.main run --simulate
+Night complete: 23 items → 8 clusters → 7 drafts queued. Nothing sent.   (8.2 s end to end)
+7/7 drafts rewritten by qwen36 vs the template run, facts kept, 0 fallbacks.
+```
+
+- **Why no DFlash:** with `--speculative-config` (DFlash drafter) the container crash-looped 6+ times: `qwen3_dflash.py:96` passes `use_mm_prefix` to `FlashAttentionImpl.__init__`, which doesn't accept it in this image. Without the drafter the same body model loads and serves; decode is slower but a full night is still ~8 s.
+- **Watchdog:** `tmux` session `watchdog` runs `scripts/model-keepalive.sh` status-only (no `SERVE_CMD`); Docker's `--restart unless-stopped` already restarts a crashed server, and a restart command would fire mid warm-up (~6 min). Status: `~/nightshift-ops/status.txt`.
+
+### C2 notes (setup)
 
 - **Model:** `~/models/qwen36-35b-a3b-heretic-nvfp4` = AEON-7/Qwen3.6-35B-A3B-heretic-NVFP4 (abliterated Qwen3.6 35B-A3B MoE, ~5/100 refusal rate per its card, NVFP4, ~23.4 GB). It is safetensors for vLLM, not a GGUF, so llama.cpp can't serve it as-is. Drafter for speculative decoding: `~/models/qwen36-35b-a3b-dflash-drafter`.
 - **Server:** Russ's agent (`claude-mlfactory@russ-mbp`) holds the box's `gpu` claim for `vllm-serve` on port 8000 using `ghcr.io/aeon-7/aeon-vllm-ultimate:latest` (box rule: `--gpu-memory-utilization` 0.65). NightShift uses that server; it does not start its own.
