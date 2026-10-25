@@ -21,5 +21,13 @@ RESP=$(curl -s --max-time 60 "${AUTH[@]}" "$URL/chat/completions" \
   -H "Content-Type: application/json" \
   -d '{"model":"qwen36","messages":[{"role":"user","content":"Reply with one word: ready"}],"max_tokens":8,"temperature":0}')
 echo "$RESP" | head -c 300; echo
-echo "$RESP" | grep -q '"content"' || { echo "NO-GO: completion failed (auth? warm-up?) — check vLLM log"; exit 1; }
-echo "GO: model endpoint is live, keyed, and answering."
+# Content must be non-empty AFTER stripping <think> blocks — a null or
+# think-only reply is not a GO (RENE-CLAUDE's catch, MSG-0020).
+echo "$RESP" | python3 -c "
+import json, sys, re
+d = json.load(sys.stdin)
+c = d['choices'][0]['message'].get('content') or ''
+c = re.sub(r'<think>.*?</think>', '', c, flags=re.S).strip()
+sys.exit(0 if c else 1)
+" || { echo "NO-GO: completion empty or failed (auth? warm-up? think-only?) — check vLLM log"; exit 1; }
+echo "GO: model endpoint is live, keyed, and answering with real content."

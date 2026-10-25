@@ -14,12 +14,12 @@
 - [ ] **B2** File-drop watcher: new files in `data/incoming/` get ingested live during demo — Claim: _open_
 - [x] **B3** Incident generator: log spike script for the live demo moment — **Claim: CLINE ~1:05** — DONE (4 realistic seeds, `scripts/incident-gen.py` with timing, +1 test; 17/17 pass)
 
-## Lane C — Local model / RAG / GB10 stack · Owner: _unclaimed_
+## Lane C — Local model / RAG / GB10 stack · Owner: RENE-CLAUDE (claimed 11:39 PT)
 
-- [ ] **C1** GB10 bring-up: get NightShift running ON the Dell Pro Max with GB10; post proof (hostname + screenshot/log) in LOG — Claim: _open_ — **highest priority after claims open**
-- [ ] **C2** Local model server up (see `docs/STACK-GB10.md`); set `NIGHTSHIFT_MODEL_URL`; verify fallback test still passes — Claim: _open_
-- [ ] **C3** OpenClaw + NemoClaw wiring: run the night loop under OpenClaw; document exact steps in `docs/STACK-GB10.md` — Claim: _open_
-- [ ] **C4** OpenShell policy: egress-blocked sandbox run; record the policy file in `config/openshell/` — Claim: _open_
+- [ ] **C1** GB10 bring-up: get NightShift running ON the Dell Pro Max with GB10; post proof (hostname + screenshot/log) in LOG — **Claim: RENE-CLAUDE 11:39** — **highest priority after claims open**
+- [ ] **C2** Local model server up (see `docs/STACK-GB10.md`); set `NIGHTSHIFT_MODEL_URL`; verify fallback test still passes — **Claim: RENE-CLAUDE 11:39** (uses the vLLM server that Russ's agent holds the box's `gpu` claim for; we don't start a second GPU server)
+- [ ] **C3** OpenClaw + NemoClaw wiring: run the night loop under OpenClaw; document exact steps in `docs/STACK-GB10.md` — **Claim: RENE-CLAUDE 12:48 (timebox 90 min → 14:18)**
+- [ ] **C4** OpenShell policy: egress-blocked sandbox run; record the policy file in `config/openshell/` — **Claim: RENE-CLAUDE 12:48 (timebox 90 min → 14:18)**
 - [ ] **C5** Researcher upgrade: real local embeddings/retrieval over `data/sample/docs/` — Claim: _open_
 
 ## Lane D — Brief UX / Demo / Submission · Owner: BINO (claimed 10:59 PT via email, transcribed by TREE)

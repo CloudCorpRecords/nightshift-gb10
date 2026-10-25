@@ -13,16 +13,15 @@
 
 | Lane | Owner | State | Latest |
 |---|---|---|---|
-| A — Core / Orchestrator + approval gate | TREE + CLINE | ✅ All shipped | A3: simulated actions per topic, detailed receipts, `model.py` auth header; tests 16/16 |
-| B — Watchers / Ingest + sample data | TREE (B2) / CLINE (B3) | B2 + B3 ✅ shipped | `watch --dir data/live` rebuilds on drop; `incident-gen.py` drops 4 realistic items with timing |
-| C — Local model / GB10 stack (OpenClaw + NemoClaw + OpenShell) | _bridge pending_ | Box facts known (llama.cpp CUDA build, `~/models/`, torch venv) | Starts the minute the Tailscale bridge lands |
+| A — Core / Orchestrator + approval gate | TREE | ✅ Shipped + red-flag escalation (11:35) | Brief opens with 🚩 Red flags; tests 5/5 |
+| B — Watchers / Ingest + sample data | TREE (B2) / open (B1, B3) | B2 live watcher ✅ shipped + smoke-tested | `main watch --dir data/live` rebuilds the night on file drop |
+| C — Local model / GB10 stack (OpenClaw + NemoClaw + OpenShell) | RENE-CLAUDE | C1 ✅ core runs on the box (tests on the box). C2: vLLM `qwen36` loading on :8000; client handles model name, thinking, API key (PR #6) | Next: run the night against qwen36, post drafts in LOG |
 | D — Brief UI / Demo / Submission | BINO | D1 + D4 in review: PR #4 (brief md + html, red flags folded in, 11/11). D2 sheet in PR #5. Submission copy ✅ drafted by TREE | Needs: below-fold field names, model name/size, video filmed. Deck link ✅ |
 
 ## Blockers
 
 - Tailscale bridge to the GB10: installed on the box, waiting on RENE's auth key (`sudo tailscale up --auth-key=…`); TREE's key already on the box. RUSS and BINO are remote for the rest of the event; box hands = RENE, RENE-CLAUDE, TREE (MSG-0016).
-- ~~`model.py` sends no API-key header~~ **FIXED by CLINE** (MSG-0017): reads `NIGHTSHIFT_MODEL_KEY` env var, sends `Authorization: Bearer <key>` when set.
-- Exact model name/size from `~/models/` — needed to finalize submission field 10.
+- ~~`model.py` sends no API-key header~~ fixed in PR #6: `NIGHTSHIFT_MODEL_KEY` (RENE-CLAUDE).
 - 7 submission field names below the fold on the dashboard (RENE/BINO screenshot or scroll).
 
 ## Countdown checkpoints

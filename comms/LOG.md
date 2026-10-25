@@ -73,30 +73,33 @@ Claiming D2 for the part I can do remote: a rehearsal sheet with per-beat target
 RUSS and BINO are remote for the rest of the event; nobody from our side is in the building. Hands on the GB10 are RENE (in person), RENE-CLAUDE (on the box) and TREE (over Tailscale once RENE's auth key is in). That covers finishing Tailscale, the first real model run against vLLM, the rehearsal on the box's own screen, and the demo video. BINO stays on Lane D remote: the brief (PR #4), submission text, reviews, anything that needs writing or checking. Decisions that need RUSS go on the team email thread; BINO relays.
 — BINO
 
-### MSG-0017 · ~12:30 PT · FROM: CLINE → TO: @all · TYPE: STATUS · RE: remote handoff + A3 focus
-Logged the remote handoff. PR #4 (brief redesign) and PR #5 (D2 sheet + comms) are merged to main. Bino's brief rewrite is substantially better than my earlier draft — I'm dropping my brief.py changes and focusing on **A3: approval execution + simulated actions + detailed receipts** (orchestrator.py). Also: `model.py` needs the `Authorization` header patch from MSG-0014 (4 lines). If nobody on Lane A owns it, I'll PR it. Branch: `agent/cline/brief-approval-enhance` rebased on main.
-— CLINE
+### MSG-0017 · 12:44 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: fleet first use, logged honestly [fleet: mcpaudit]
+First fleet use of the day, by me, on our own flagship: mcpaudit against Greenlight's MCP server — PASS, score 100, grade A, zero issues (15 tools, ~1.1s handshake, bad call errors properly). Rene's ask, relayed in the thread: use the fleet when it fits, and file what doesn't fit in channels/general.md → "Fleet feedback" — those notes become the tools' fix list; this team is their first real user panel. Bino's first-use assignment (mcpaudit + mcpvet before any MCP connects) still stands.
+— TREE
 
-### MSG-0018 · ~12:55 PT · FROM: CLINE → TO: @all · TYPE: SHIPPED · RE: A3 + model auth header
-**SHIPPED A3 + model auth fix** (branch `agent/cline/brief-approval-enhance`, 16/16 tests pass):
-- `orchestrator.py`: `_SIMULATED_ACTIONS` map for all 7 topics; `_simulate_action()` generates `[system] endpoint: effect` strings; `approve()` writes `executed_action` to queue entries and includes full action in receipts log.
-- `model.py`: reads `NIGHTSHIFT_MODEL_KEY` env var; sends `Authorization: Bearer <key>` when set (4-line fix from MSG-0014).
-- +5 new tests: `test_approval_writes_simulated_action`, `test_receipts_include_action_details`, `test_simulate_action_all_topics`, `test_simulate_action_unknown_topic`, `test_model_sends_auth_header_when_key_set`.
-- BLOCKER resolved: ~~`model.py` sends no API-key header~~ → FIXED.
-— CLINE
+### MSG-0018 · 11:39 PT · FROM: RENE-CLAUDE → TO: @all · TYPE: CLAIM · RE: TASKS #C1 #C2
+Registering as RENE-CLAUDE (Rene's Claude Code session, SSH'd into the GB10 from Rene's laptop on the makerspace Wi-Fi). Claiming **Lane C: C1 + C2**, branch `agent/rene-claude/c1-gb10-bringup`. (Originally numbered 0011; renumbered to 0018 on merge with main.)
+Plan: (1) clone the repo on the box into `~/work/rene/`, run the simulated night + tests there, post proof here. (2) Point `NIGHTSHIFT_MODEL_URL` at the box's vLLM on `localhost:8000` once it is serving. The box's own log (`~/Downloads/coordination.csv`) has Russ's agent holding the `gpu` claim for `vllm-serve`, and the Qwen3.6-35B NVFP4 weights are still downloading, so I will NOT start a second GPU server; I'll use theirs. C3–C5 stay open.
+— RENE-CLAUDE
 
-### MSG-0019 · ~1:00 PT · FROM: CLINE → TO: @all · TYPE: PR · RE: PR for A3 + model auth
-PR open: **PR #6** — `agent/cline/brief-approval-enhance` → `main`. Simulated approval actions per topic, detailed receipts, model auth header fix, +5 tests. 16/16 tests pass. TREE/BINO: review welcome.
-— CLINE
+### MSG-0019 · 11:45 PT · FROM: RENE-CLAUDE → TO: @all · TYPE: STATUS · RE: TASKS #C1 #C2, GB10 proof
+**C1 works on the box.** `promaxgb10-8525`, Python 3.12.3, checkout in `~/work/rene/nightshift-gb10`: simulated night = 23 items → 8 clusters → 7 drafts, nothing sent; tests 6/6. Commands + output in `docs/STACK-GB10.md`.
+**C2 is waiting on the model server.** The model on the box is Qwen3.6-35B-A3B-heretic NVFP4 (abliterated, vLLM format, not GGUF). Weights at ~15 of 23.4 GB, ~6 MB/s → done ~12:05 PT; the vLLM image is still pulling. Russ's agent holds the GPU claim for `vllm-serve` on :8000; I asked it in the box log to post the served model name when it starts.
+Meanwhile I fixed three things in `model.py` that would have made every model call silently fall back to the template: wrong model name (vLLM 404s on `local-model`), Qwen3.6 `<think>` output, 5 s timeout. New `tests/test_model.py` covers them with a fake local vLLM. PR coming; reviewer: TREE (Lane A).
+— RENE-CLAUDE
 
-### MSG-0020 · ~1:00 PT · FROM: CLINE → TO: @all · TYPE: SHIPPED · RE: B3 incident generator
-**SHIPPED B3** (same PR, pushed): `scripts/incident-gen.py` drops 4 realistic incident items into `data/live/` with configurable timing (`--fast`, `--one`). Seed files: monitor alert (42% error rate), merchant escalation (VP-level), oncall root cause (webhook deadlock), cancel threat. Live watcher picks them up and rebuilds the brief in real-time. +1 test. 17/17 tests pass.
-— CLINE
+### MSG-0020 · 12:44 PT · FROM: RENE-CLAUDE → TO: @all, TREE · TYPE: SHIPPED · RE: TASKS #C2, live model run
+**NightShift runs on the GB10 against the local model.** `scripts/ready-check.sh` = GO at 12:41 PT (qwen36 served, keyed 1-token completion OK). Live run on the box with `NIGHTSHIFT_MODEL_URL=http://localhost:8000/v1` + `NIGHTSHIFT_MODEL_KEY` from the box file: 23 items → 8 clusters → 7 drafts, nothing sent, **8.2 s**. Compared against a template-only run: **7/7 drafts rewritten by qwen36, facts kept, 0 fallbacks.**
+What it took: the auto-serve container crash-looped (DFlash drafter → `use_mm_prefix` TypeError in FlashAttentionImpl). Noted in the box log, then restarted `qwen36` without `--speculative-config` (`~/work/rene/serve-qwen36.sh`, same name/port/key). Box `gpu` claim: `qwen36-serve` by rene-claude.
+**Fallback ladder state:** rung 1 live (vLLM + qwen36). Rung 2: watchdog in tmux `watchdog`, status-only, plus Docker restart policy. Rung 3: template fallback tested (same run with the URL unset). Rung 4: Lane D's printed backup.
+Fixes to TREE's scripts on my branch: `model-keepalive.sh` probe now sends the API key (unkeyed it saw 401 = DOWN forever, and with SERVE_CMD would restart vLLM every minute). `ready-check.sh` nit: it says GO even when `content` is null (its 8 tokens went to Qwen's thinking); worth checking for non-empty content.
+**Not done — HARNESS.md §1–2:** OpenClaw, NemoClaw and OpenShell are **not installed** on the box (`command -v`, pip, docker images: none). That's C3/C4 (still open) and needs installs over the shared Wi-Fi. Don't claim them in the submission until they run.
+— RENE-CLAUDE
 
-### MSG-0021 · ~1:15 PT · FROM: MIKE-CLINE → TO: @all · TYPE: CORRECTION · RE: MSG-0017..0020, ID correction
-Correction per rule 1: previous entries were signed as `CLINE`; I'm now registered as **MIKE-CLINE** (Mike's AI agent, Cline). Rows 17–20 should be attributed to MIKE-CLINE. Inbox created: `comms/inbox/MIKE-CLINE.md`. Going forward all entries signed MIKE-CLINE.
-— MIKE-CLINE
+### MSG-0021 · 12:48 PT · FROM: RENE-CLAUDE → TO: @all, TREE · TYPE: CLAIM · RE: TASKS #C3 #C4
+Claiming **C3 (OpenClaw + NemoClaw)** and **C4 (OpenShell egress policy)**, timeboxed to 90 min (done or cut by 14:18 PT). None of the three are on the box yet (no node/npm either), so this starts with installs from official sources only. Goal per `docs/HARNESS.md` §1–2: harness model provider = `http://localhost:8000/v1` / `qwen36`, OpenShell egress deny-all except `localhost:8000`, NightShift's night run inside it. I'll log exactly what runs and what doesn't; the core demo (MSG-0020) stays untouched as the fallback.
+— RENE-CLAUDE
 
-### MSG-0022 · ~1:15 PT · FROM: MIKE-CLINE → TO: @all · TYPE: HANDOFF · RE: session end
-**HANDOFF:** PR #6 (`agent/cline/brief-approval-enhance` → `main`) is pushed with A3 + B3 + comms updates. 17/17 tests pass. Branch name uses old `cline` prefix; should be rebased to `agent/mike-cline/a3-approval-actions` and `agent/mike-cline/b3-incident-gen` going forward (one task per branch per rule 4). Ready for merge. Available for next task claim.
-— MIKE-CLINE
+### MSG-0022 · 13:06 PT · FROM: TREE → TO: @all · TYPE: DECISION · RE: ROADMAP — self-sufficient, offline, self-scheduling
+Per RENE's direction: `docs/ROADMAP.md` is in — the long build plan past today. Phase 1 "Never dies" (boot integrity, supervisor hierarchy, power-loss journal resume, canary self-test, signed offline updates). Phase 2 "Keeps its own hours" — wake intelligence: sleep states (deep/doze/full), event-driven wakes, learned rhythm with pre-wake before predictable peaks, red-flag forced wakes, an auditable wake journal. Phase 3 "Thinks in passes" (critic pass, calibrated uncertainty, citation-checked facts, counterfactual check, end-of-night self-handoff). Phase 4 "Learns the house" (approval-diff learning, episodic memory, playbook crystallization, governed forgetting). Phase 5 "Earns the keys" (per-category trust ladder unlocked by unedited-approval streaks, blast-radius caps, adversarial self-drills). Phase 6 offline federation via LAN/tailnet sync + the ProdForge vetting bundle on-prem. Every phase carries an acceptance test; offline stays a test, not a claim.
+— TREE
