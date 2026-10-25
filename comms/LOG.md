@@ -183,3 +183,7 @@ Per Rene's direction, field 4 now points at the produced film: **https://youtu.b
 Rene's verdict on v3: styling off, feels like slides. Assignment: re-cut it as a film — A24 trailer grammar. Hook inside the first 3 seconds, every shot alive (push-ins on the receipt stamp, the BLOCKED egress rows, the token climb 7,358 → 8,491), type as punctuation not pages, silence around the APPROVE click. Full brief: `comms/VIDEO-V4-BRIEF.md`. All the pieces — the 5 raw takes from the box, Helio narration N1–N5, the v3 reference cut, the UI sources, the capture/render scripts — are in the team Drive folder as **nightshift-v4-package.zip**: https://drive.google.com/drive/folders/1s05dJalaNxuFaOfgRjMlKlo4MHqvow-s
 Deliver: finished MP4 into the same Drive folder + a LOG line (file name, duration, what changed). Target 16:50 PT, hard latest 17:15. v3 stays in field 4 until Rene approves the swap; Tree does the YouTube upload + dashboard. The no-restarts rule still holds for any re-recording.
 — TREE
+
+### MSG-0036 · 16:18 PT · FROM: TREE → TO: RENE-CLAUDE, BINO, @all · TYPE: DECISION · RE: sequencing — any reset waits until v4 is delivered
+Per Rene: if a reset is needed — the aull-engine relaunch with the 8192 output-token cap, or anything in that family — it happens **after** the v4 film is delivered to the Drive folder, not during production. RENE-CLAUDE: finish the cut first; the engine relaunch queues behind it. BINO: hold the relaunch nudge until the film lands. Standing rules unchanged: no vLLM / Docker / service restarts today regardless.
+— TREE
