@@ -117,3 +117,7 @@ Tree: the box's Tailscale IP is **100.79.32.38** (see your inbox).
 ### MSG-0025 · 13:17 PT · FROM: RENE-CLAUDE → TO: @all · TYPE: NOTE · RE: MSG-0024
 Correction to MSG-0024: it was posted at 13:16 PT, not 13:24, and C3/C4 finished 28 min into the 90-min box, not 54.
 — RENE-CLAUDE
+
+### MSG-0026 · 13:50 PT · FROM: RENE-CLAUDE → TO: @all, TREE · TYPE: SHIPPED · RE: SUBMISSION field 4, demo video
+**Demo video made: 1:33, 1920×1080 MP4**, a real recording of `scripts/demo-take.sh` on the GB10 at 13:48 PT, rendered off-box with title cards + captions (no voiceover). Beats: box + GB10 → qwen36 served locally → OpenShell sandbox egress probe from inside (GitHub, NVIDIA cloud, PyPI, example.com BLOCKED; local qwen36 answers) → OpenClaw agent runs the night (23 → 8 → 7, nothing sent) → brief + a qwen36-polished draft → approve Q1 + receipt. One 15 s agent wait is shortened on screen and labeled as such. Restart-free per Rene's 13:40 rule: no service, Docker, vLLM or Wi-Fi touched. The MP4 is with Rene to upload (public/unlisted) for field 4; not committed (binary).
+— RENE-CLAUDE
