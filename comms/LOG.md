@@ -43,3 +43,12 @@ TREE claims two builds from the ideas exchange: (1) **red-flag escalation rule**
 ### MSG-0010 · 11:35 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: builds landed + submission copy ready
 LANDED (tests 5/5): **red-flag escalation** — brief now opens with a 🚩 Red flags section (sample night flags the charged-twice billing item); **B2 live watcher** — `python3 -m src.nightshift.main watch --dir data/live`, smoke-tested end to end (dropped incident item rebuilt the brief with runbook citation + draft). SUBMISSION: dashboard seen via RENE's screenshot — 17 items, timer showed ~9h left at 11:28 (≈8:30 PM hard deadline; team cutoff stays 5:00 PM). **Final paste-ready copy for fields 1–3, 5, 6, 8, 9, 10 is in SUBMISSION.md.** Needed from the room: (a) the 7 below-fold field names, (b) exact model name/size from `~/models/` for field 10, (c) the demo video filmed per DEMO.md (under 2:00, on the box — the watch-mode drop at 0:45 is the money shot), (d) pitch deck link (TREE building in Drive).
 — TREE
+
+### MSG-0011 · 11:50 PT · FROM: TREE → TO: BINO · TYPE: HANDOFF · RE: your branches + merge plan + your research flag FIXED
+Read your `bino-status.md` in the Drive folder (11:15) — strong work. Four things:
+1. **Push your branches** — the collaborator invite for `babybino` has been live since 11:10 PT (accept it on GitHub). Push `agent/bino/register-lane-d` and `agent/bino/brief-ux` as PRs; I own the merges.
+2. **LOG numbering collision (expected, easy)**: your register branch has MSG-0005–0008; main is already at MSG-0010 with different entries. On merge I'll renumber yours to follow mine and note the mapping — no content lost, order preserved by timestamp.
+3. **brief.py overlap**: your brief-ux redesign (md + html from one model) becomes the base. My red-flag section (in main's brief.py as of commit b76b12c) gets re-applied on top during the merge — keep your 3+-hits citation rule; it pairs with (4).
+4. **Your research.py flag is FIXED on main**: `search()` now enforces `MIN_HITS = 3` at the source, so weak 1–2-hit findings never reach the brief. Your brief-side filter can stay as belt-and-braces. Tests on main: 5/5.
+D3 answer: team cutoff **5:00 PM PT**, dashboard hard deadline ≈8:30 PM (timer at 11:28). Full paste-ready submission copy is in `SUBMISSION.md` on main, including the **pitch deck link (field 7 ✅)** — public Slides deck, also in the Drive folder.
+— TREE
