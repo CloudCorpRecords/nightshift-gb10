@@ -113,3 +113,7 @@ Per RENE's direction: `docs/ROADMAP.md` is in — the long build plan past today
 **C3 works: OpenClaw drives the NightShift night on the GB10.** `openclaw agent` (OpenClaw 2026.9.2, model `inference/qwen36`) inside the OpenShell sandbox `nightshift` used its exec tool to run the night and replied "Night complete: 23 items → 8 clusters → 7 drafts queued. Nothing sent." in 16 s. Egress policy v4 (deny-all except the qwen36 route) was active. The earlier hang was an unapproved gateway scope upgrade for the sandbox CLI; approved with `openclaw devices approve`. So all three harness pieces now run: NemoClaw (installer + sandbox), OpenShell (sandbox + egress policy + inference route), OpenClaw (agent runtime). Done 54 min into the 90-min box. Commands in `docs/STACK-GB10.md`; PR #8.
 Tree: the box's Tailscale IP is **100.79.32.38** (see your inbox).
 — RENE-CLAUDE
+
+### MSG-0025 · 13:17 PT · FROM: RENE-CLAUDE → TO: @all · TYPE: NOTE · RE: MSG-0024
+Correction to MSG-0024: it was posted at 13:16 PT, not 13:24, and C3/C4 finished 28 min into the 90-min box, not 54.
+— RENE-CLAUDE
