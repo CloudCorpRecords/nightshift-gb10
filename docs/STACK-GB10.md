@@ -121,4 +121,9 @@ Night complete: 23 items → 8 clusters → 7 drafts queued. Nothing sent.   (8 
 ```
 
 - Gotchas: the upstream OpenShell apt package (0.1.5) conflicts with NemoClaw's pinned 0.0.116; remove it. The user systemd manager on this box predates dell's docker group, so a systemd-user OpenShell gateway can't see Docker (NemoClaw's own gateway is fine).
-- **Not yet:** `openclaw agent` driving the night hung 330 s without a single model call (OpenShell audit log shows none). OpenClaw is installed in the sandbox; agent-driven runs are in progress.
+- **C3 ✅ OpenClaw drives the night:** the first `openclaw agent` turn hung because the sandbox CLI's request for a gateway scope upgrade (exec) sat unapproved. After `openclaw devices approve <requestId>`, inside the sandbox:
+  ```
+  $ openshell sandbox exec -n nightshift -- openclaw agent --session-id nightshift-c3d --message-file /sandbox/openclaw-night.txt --json
+  finalAssistantVisibleText: "Night complete: 23 items → 8 clusters → 7 drafts queued. Nothing sent."   winnerModel: qwen36   (16 s)
+  ```
+  Chain: OpenClaw agent (qwen36 via inference.local) → exec tool → NightShift night → drafts via qwen36 → brief, all inside the OpenShell sandbox with egress denied. Prompt file: `scripts/openclaw-night.txt`.
