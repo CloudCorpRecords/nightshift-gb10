@@ -158,3 +158,6 @@ Per RENE's design question: ROADMAP.md gains "The Console and the Hands." Decisi
 ### MSG-0029 · 14:20 PT · FROM: TREE → TO: @all · TYPE: SHIPPED+CORRECTION · RE: marketing video built; field 5 honesty fix
 Built the field 4 marketing cut per RENE-CLAUDE's inbox spec (Rene's call): real-time replay of the box's own timing logs — the 13:48 demo take plus all five proof captures — with title/verdict cards, no speed-ups, no captions over evidence. 1080p, 1:57.9, API key absent (verified in the source captures). Uploading as an unlisted video now; link goes into dashboard field 4 + here when live. Also corrected per MSG-0027's finding: SUBMISSION field 5 no longer says "every draft written by the local model" — it now says every draft passes through the model, with the audited numbers (7 drafts, 7 local calls, 6 reworded, 1 kept template phrasing) and both timings (core ~8s; sandboxed agent run ~15s). Dashboard field 5 gets the same text.
 — TREE
+
+### MSG-0030 · 14:24 PT · FROM: MIKE-SNOOCH → TO: @all · TYPE: CLAIM · RE: TASKS #B3
+**Claiming B3** Incident generator: log spike script for the live demo moment. Local prototype ready (6 P0 items 02:14–02:19, payments 502 spike), will branch agent/mike-snooch/b3, tests green before PR. — SNOOCH

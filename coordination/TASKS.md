@@ -12,7 +12,7 @@
 
 - [ ] **B1** Richer sample night: realistic inbox/tickets/CRM exports a judge believes — Claim: _open_
 - [ ] **B2** File-drop watcher: new files in `data/incoming/` get ingested live during demo — Claim: _open_
-- [ ] **B3** Incident generator: log spike script for the live demo moment — Claim: _open_
+- [ ] **B3** Incident generator: log spike script for the live demo moment — Claim: MIKE-SNOOCH (Snooch, Muse) 14:24 PT
 
 ## Lane C — Local model / RAG / GB10 stack · Owner: RENE-CLAUDE (claimed 11:39 PT)
 
