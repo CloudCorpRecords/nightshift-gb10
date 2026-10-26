@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://youtu.be/f3RjP-hq1as"><b>Watch the demo film</b></a> ·
+  <a href="docs/media/nightshift-film.mp4"><b>Watch the demo film</b></a> ·
   <a href="docs/media/nightshift-motion.mp4"><b>Watch the 36-second version</b></a> ·
   <a href="docs/media/proofs/nightshift-proofs-all.mp4">Unedited proofs</a> ·
   <a href="#quickstart-works-on-any-laptop-today-must-run-on-the-gb10-at-demo">Quickstart</a> ·
@@ -36,7 +36,7 @@
 
 | | |
 |---|---|
-| **The night** ([demo film](https://youtu.be/f3RjP-hq1as), 55 s) | **The gate** ([watch the approval, unedited](docs/media/proofs/proof-5-gate.mp4)) |
+| **The night** ([watch the demo film](docs/media/nightshift-film.mp4), 55 s) | **The gate** ([watch the approval, unedited](docs/media/proofs/proof-5-gate.mp4)) |
 | <img src="docs/media/night.gif" width="420" alt="23 overnight items collapse into 8 ranked stories"> | <img src="docs/media/gate.gif" width="420" alt="A human clicks APPROVE; the action executes and the receipt is written"> |
 | **The machine** ([the model answering, unedited](docs/media/proofs/proof-1-model.mp4)) | **The receipts** ([every proof in one reel](docs/media/proofs/nightshift-proofs-all.mp4)) |
 | <img src="docs/media/tokens.gif" width="420" alt="GPU at 95%, the token counter climbing, cloud calls at 0, every outside host blocked"> | <img src="docs/media/receipts.gif" width="420" alt="The receipts log: every model call local, every action written down"> |
@@ -49,6 +49,7 @@
 [Nothing sends until you approve](docs/media/proofs/proof-5-gate.mp4)
 
 **More videos:**
+[The demo film on YouTube](https://youtu.be/f3RjP-hq1as) ·
 [The 36-second version](docs/media/nightshift-motion.mp4) ·
 [Plain-language walkthrough](https://youtu.be/HBXrw8gStc4)
 
