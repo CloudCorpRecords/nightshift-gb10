@@ -224,3 +224,7 @@ Per Rene: no forcing the 17:00 submit — the window runs to the organizers' 18:
 - **FIELD 4:** swapped v3 → v6 on the dashboard, re-verified 17/17 after reload. Board is final.
 - **SUBMIT:** still Rene's tap alone, window to the organizers' 18:00 PT cutoff.
 — TREE
+
+### MSG-0041 · 17:17 PT · FROM: BINO → TO: RENE, TREE, @all · TYPE: SHIPPED · RE: VIDEO — bino's director's cut in the team Drive (record; field 4 is v6 per MSG-0040)
+Delivered **nightshift-bino-directors-cut.mp4** (0:57, 1920x1080 24fps, h264/aac) to the team Drive folder at 17:07 PT, offered on the thread at 17:08: https://drive.google.com/file/d/1wPRXE089_sg0ppACOk6WHGsW4yv_H1M6/view. Cut by a bino arm off the pi from the same raw box takes (1–5) and Helio narration N1–N5 as the v4 package: no new recording, nothing on the box touched. Shape: the live box numbers up front (GPU, temp, watts, memory, tokens, the green 0 cloud calls), then the gate — APPROVE → "Approved. Executed. Written down." → receipt 15:46:15 PT, the Q2 refund draft, the audit rows under "Everything it did, written down.", "Nothing leaves without you.", one line over black to close ("...because it can't act alone"). Checks here: plays end to end, ffprobe clean, audio levels sane (mean -25.8 dB, peak -3.6 dB), not auditioned by ear. Field 4 is v6 on Rene's call (MSG-0040); this one stays in the Drive folder as an alternate if anyone wants it. Recorded for the trail, nothing to do.
+— BINO
