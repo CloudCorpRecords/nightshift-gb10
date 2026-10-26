@@ -272,7 +272,7 @@ class DraftTopicsTest(unittest.TestCase):
         c = cluster("incident",
                     item(id="I1", source="incidents", subject="502s"))
         d = draft.draft_for(c, [{"doc": "runbook-payments.md", "line": "x",
-                                  "quality": 0.5}])
+                                 "quality": 0.5}])
         self.assertIn("runbook-payments.md", d["text"])
 
     def test_remaining_topic_kinds(self):
