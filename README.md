@@ -13,6 +13,41 @@ NightShift is an always-on agent that runs **entirely on one Dell Pro Max with G
 
 > Private by architecture, not by promise. Nothing leaves the box, because nothing has to.
 
+## Watch it work
+
+<p align="center">
+  <a href="https://youtu.be/f3RjP-hq1as"><img src="docs/media/film-poster.jpg" alt="Watch the NightShift demo film (0:55)" width="820"></a>
+  <br>
+  <b><a href="https://youtu.be/f3RjP-hq1as">▶ The demo film (0:55)</a></b> · recorded on the GB10 itself, network off
+</p>
+
+Every clip below is a straight screen recording from the box — no mockups, no edits inside a shot.
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/media/night.gif" alt="23 overnight items collapse into 8 ranked stories" width="100%"><br>
+      <b>The night.</b> 23 items land overnight and collapse into 8 ranked stories. The payments outage outranks everything.
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/media/gate.gif" alt="A human clicks APPROVE and the receipt is stamped" width="100%"><br>
+      <b>The gate.</b> Nothing leaves without a human. One real APPROVE click — executed, and the receipt written on camera.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/media/tokens.gif" alt="GPU at 95%, token counter climbing, zero cloud calls" width="100%"><br>
+      <b>The machine.</b> A live prompt to the local model: GPU climbs, tokens count up, cloud calls stay at <b>0</b>. The sandbox wall blocks every outside host.
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/media/receipts.gif" alt="The receipts log: every model call local, every action written down" width="100%"><br>
+      <b>The receipts.</b> Every model call local, every action written down. If you can't audit it, you can't trust it overnight.
+    </td>
+  </tr>
+</table>
+
+More footage: [plain-language narrated walkthrough](https://youtu.be/HBXrw8gStc4) · [unedited real-time proofs](https://youtu.be/hs16MwAnwEc) (model, egress block, agent run, authorship, approval gate — each with a computed PASS/FAIL)
+
 ## Why this, why now (thought leadership)
 
 1. **Work doesn't stop at 6pm, but humans do.** Inboxes, tickets, and incidents accumulate overnight. The value isn't another chatbot you have to prompt — it's the work already triaged when you sit down.
