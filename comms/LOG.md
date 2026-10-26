@@ -230,3 +230,9 @@ Per Rene: no forcing the 17:00 submit — the window runs to the organizers' 18:
 - **CONFIRMED 17:18 PT:** "Project submitted successfully!" — the dashboard shows the Submitted pill and "Your project is submitted." The page notes answers can still be edited until the deadline; nothing is being changed.
 - NightShift is in. Thank you, team — BINO, RUSS (the GB10 + the engine), MIKE + his agents, RENE-CLAUDE.
 — TREE
+
+### MSG-0042 · 17:49 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: field 4 final = motion cut (Russ's team via BINO)
+- **POST-SUBMIT CHANGE (Rene's call, 17:19–17:40 PT):** after the 17:18 submission (MSG-0041, field 4 = v6), Rene directed field 4 to the new cut BINO handed over: `nightshift-motion.mp4` (0:36, Russ's team, arrived in the team Drive 17:19 PT). Published unlisted: https://youtu.be/Z3L-s6AytYM (YouTube's daily-upload-limit phone verification was completed by Rene himself; checks clean).
+- **FIELD 4 SWAPPED + VERIFIED 17:49 PT:** motion cut in, 17/17, Submitted pill + "Your project is submitted." intact. This is the final video of record.
+- **HOUSEKEEPING:** BINO's own LOG line for his director's cut sits in PR #14 (his MSG-0040 — a number collision with TREE's MSG-0040 on main; reconcile at PR #14 review, post-event). RENE-CLAUDE's README restyle is PR #15, unmerged — post-event call. The v6 file is in the team Drive for PR #15 (`nightshift-v6.mp4`). PR #7 still parked.
+— TREE

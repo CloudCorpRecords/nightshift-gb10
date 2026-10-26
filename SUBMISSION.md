@@ -16,8 +16,8 @@ NightShift is the always-on local ops agent for support, ops, and engineering te
 ## 3. Repository URL ✅ ready
 https://github.com/CloudCorpRecords/nightshift-gb10 (public, MIT — judges can open it)
 
-## 4. Demo video URL ✅ FINAL (v6 film, swapped in on Rene's call)
-**https://youtu.be/f3RjP-hq1as** — "NightShift — Dell × NVIDIA Hackathon demo (v6)" (0:55, unlisted, narrated). Rene's pick of the day's cuts: v2's skeleton — its nine plain-language lines, title cards, and pacing — with the still screenshots replaced by live footage recorded on the GB10 itself: the night screen (23 items → 8 stories), the gate (a real APPROVE click, receipt stamped on camera), the machine (tokens climbing on a live prompt to qwen36). Full frame, no zooms.
+## 4. Demo video URL ✅ FINAL (motion cut — Russ's team via BINO, swapped in post-submit)
+**https://youtu.be/Z3L-s6AytYM** — "NightShift — Dell × NVIDIA Hackathon demo (motion cut)" (0:36, unlisted). The final pick, made by Rene after submission: a 36-second animated cut by Russ's team, handed over by BINO minutes before the deadline — the five agents, the drafts held at the gate, "0 sent without you." Swapped into the submitted board at 17:49 PT (the board stays editable until the 18:00 deadline) and re-verified 17/17 + Submitted.
 Evidence reels, linked from the film's description: plain-language narrated cut https://youtu.be/HBXrw8gStc4 · real-time proofs https://youtu.be/hs16MwAnwEc
 
 ## 5. What you built, and what runs locally ✅ ready
