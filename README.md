@@ -1,11 +1,58 @@
-# NightShift — The Always-On Local Ops Agent
+<p align="center">
+  <img src="docs/media/hero.gif" width="720" alt="23 items arrive overnight, NightShift's five agents sort them into 8 stories and 7 drafts, and 0 are sent without you">
+</p>
 
-![Team bino force go](assets/team-bino-force-go.png)
+<h1 align="center">NightShift</h1>
 
-**By team `bino force go`** — Rene Turcios · Bino Baby · Russ · Mike Rice (each human + their AI agents)
+<p align="center">
+  <b>The always-on ops agent that works the night shift, on one Dell Pro Max with GB10.</b><br>
+  It reads the night's inbox, tickets and incidents, drafts every reply, and sends nothing until you say so.<br>
+  No cloud API. Nothing leaves the box, because nothing has to.
+</p>
 
-**Dell x NVIDIA AI Hackathon · San Francisco · Sunday, Oct 25, 2026 · Frontier Tower**
-**Team repo — humans + their AI agents build here together. Start with `AGENTS.md`, then `comms/`.**
+<p align="center">
+  <a href="https://youtu.be/f3RjP-hq1as"><b>Watch the demo film</b></a> ·
+  <a href="docs/media/nightshift-motion.mp4"><b>Watch the 36-second version</b></a> ·
+  <a href="docs/media/proofs/nightshift-proofs-all.mp4">Unedited proofs</a> ·
+  <a href="#quickstart-works-on-any-laptop-today-must-run-on-the-gb10-at-demo">Quickstart</a> ·
+  <a href="#how-this-team-builds-humans--agents">How we built it</a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-a6e22e?style=flat-square"></a>
+  <img alt="Dell Pro Max with GB10" src="https://img.shields.io/badge/runs%20on-Dell%20Pro%20Max%20GB10-0f1222?style=flat-square">
+  <img alt="Local model" src="https://img.shields.io/badge/model-qwen36%20on%20vLLM-0f1222?style=flat-square">
+  <img alt="Cloud calls" src="https://img.shields.io/badge/cloud%20calls-0-a6e22e?style=flat-square">
+  <img alt="Sends without you" src="https://img.shields.io/badge/sends%20without%20you-never-a196ec?style=flat-square">
+</p>
+
+<p align="center"><sub>Team <b>bino force go</b>: Rene Turcios · Bino Baby · Russ · Mike Rice, each with their AI agents · Dell x NVIDIA AI Hackathon, San Francisco, Oct 25 2026</sub></p>
+
+<br>
+
+![NightShift morning brief: 23 items in, 8 clusters, 7 drafts queued, 0 sent, with the approval queue](docs/img/morning-brief-top.png)
+
+## See it in action
+
+| | |
+|---|---|
+| **The night** ([demo film](https://youtu.be/f3RjP-hq1as), 55 s) | **The gate** ([watch the approval, unedited](docs/media/proofs/proof-5-gate.mp4)) |
+| <img src="docs/media/night.gif" width="420" alt="23 overnight items collapse into 8 ranked stories"> | <img src="docs/media/gate.gif" width="420" alt="A human clicks APPROVE; the action executes and the receipt is written"> |
+| **The machine** ([the model answering, unedited](docs/media/proofs/proof-1-model.mp4)) | **The receipts** ([every proof in one reel](docs/media/proofs/nightshift-proofs-all.mp4)) |
+| <img src="docs/media/tokens.gif" width="420" alt="GPU at 95%, the token counter climbing, cloud calls at 0, every outside host blocked"> | <img src="docs/media/receipts.gif" width="420" alt="The receipts log: every model call local, every action written down"> |
+
+**Unedited proofs, real time, recorded on the box:**
+[The local model answers](docs/media/proofs/proof-1-model.mp4) ·
+[The sandbox blocks the internet](docs/media/proofs/proof-2-egress.mp4) ·
+[The agent runs a whole night](docs/media/proofs/proof-3-agent.mp4) ·
+[Every draft written by the local model](docs/media/proofs/proof-4-authorship.mp4) ·
+[Nothing sends until you approve](docs/media/proofs/proof-5-gate.mp4)
+
+**More videos:**
+[The 36-second version](docs/media/nightshift-motion.mp4) ·
+[Plain-language walkthrough](https://youtu.be/HBXrw8gStc4)
+
+<sub>Everything is recorded from the real Dell Pro Max with GB10 (`promaxgb10-8525`) running qwen36 on vLLM with the network sealed by OpenShell. The night is a simulated small company (`data/sample/`). The proofs are replayed from the box's own terminal timing logs, with no cuts and no speed-up, and each ends with a computed PASS/FAIL. The 36-second version is a motion-graphics cut; its approval scene is a real capture.</sub>
 
 ## The pitch in one line
 
@@ -35,7 +82,7 @@ A simulated night at a small company, accelerated live:
 
 ### The morning brief (what the human sees at 9am)
 
-![NightShift morning brief: 23 items in, 8 clusters, 7 drafts queued, 0 sent, with the approval queue](docs/img/morning-brief-top.png)
+*(Screenshot at the top of this page.)*
 
 `outputs/morning-brief.html` is the screen; `outputs/morning-brief.md` is the same brief for a terminal or a phone. Full-page capture: [`docs/img/morning-brief.png`](docs/img/morning-brief.png).
 
@@ -84,6 +131,8 @@ python3 -m unittest discover tests                  # smoke tests
 Optional local model: set `NIGHTSHIFT_MODEL_URL=http://localhost:8000/v1` (any local OpenAI-compatible server) and NightShift will use it for drafting; unset, it uses the built-in deterministic drafter.
 
 ## How this team builds (humans + agents)
+
+![Team bino force go](assets/team-bino-force-go.png)
 
 This repo is the team's shared brain. **Read before you write:**
 
