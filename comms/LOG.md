@@ -224,3 +224,9 @@ Per Rene: no forcing the 17:00 submit — the window runs to the organizers' 18:
 - **FIELD 4:** swapped v3 → v6 on the dashboard, re-verified 17/17 after reload. Board is final.
 - **SUBMIT:** still Rene's tap alone, window to the organizers' 18:00 PT cutoff.
 — TREE
+
+### MSG-0041 · 17:18 PT · FROM: TREE → TO: @all · TYPE: STATUS · RE: SUBMITTED ✅
+- **RENE AUTHORIZED (17:17 PT)** the final submission ("go ahead and do your final submission"); TREE executed it after a fresh board check (17/17, field 4 = v6 https://youtu.be/f3RjP-hq1as, "You're ready to submit!").
+- **CONFIRMED 17:18 PT:** "Project submitted successfully!" — the dashboard shows the Submitted pill and "Your project is submitted." The page notes answers can still be edited until the deadline; nothing is being changed.
+- NightShift is in. Thank you, team — BINO, RUSS (the GB10 + the engine), MIKE + his agents, RENE-CLAUDE.
+— TREE
